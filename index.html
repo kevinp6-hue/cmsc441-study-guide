@@ -4,1301 +4,1450 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CMSC 441 — Final Exam Study Guide</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #080c14;
-  --surface: #0f1623;
-  --surface2: #16202f;
-  --border: #1e2d42;
-  --border2: #243348;
-  --text: #dde6f0;
-  --muted: #5e7a96;
-  --amber: #f0a830;
-  --amber-dim: #b07820;
-  --blue: #5ba3f5;
-  --teal: #2ec4b6;
-  --red: #f07070;
-  --green: #50d890;
-  --purple: #a78bfa;
-  --font-head: 'Syne', sans-serif;
-  --font-body: 'Crimson Pro', Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --bg:#080c14; --surface:#0f1623; --surface2:#16202f;
+  --border:#1e2d42; --border2:#243348;
+  --text:#dde6f0; --muted:#5e7a96;
+  --amber:#f0a830; --blue:#5ba3f5; --teal:#2ec4b6;
+  --red:#f07070; --green:#50d890; --purple:#a78bfa;
+  --font-head:'Syne',sans-serif;
+  --font-body:'Crimson Pro',Georgia,serif;
+  --font-mono:'JetBrains Mono',monospace;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.7;
-  display: flex;
-  min-height: 100vh;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:17px;line-height:1.7;display:flex;min-height:100vh;}
 
-/* ─── SIDEBAR ─── */
-#sidebar {
-  width: 270px;
-  min-width: 270px;
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  padding: 0 0 2rem;
-}
-#sidebar::-webkit-scrollbar { width: 4px; }
-#sidebar::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
-.sidebar-header {
-  padding: 1.5rem 1.4rem 1rem;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 0.8rem;
-}
-.sidebar-header h1 {
-  font-family: var(--font-head);
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--amber);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.sidebar-header p {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-top: 0.2rem;
-  font-family: var(--font-mono);
-}
-.nav-section { margin-bottom: 0.3rem; }
-.nav-label {
-  padding: 0.35rem 1.4rem;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-  display: block;
-  margin-top: 0.8rem;
-}
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0.4rem 1.4rem;
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-family: var(--font-body);
-  transition: all 0.15s;
-  border-left: 2px solid transparent;
-  opacity: 0.75;
-}
-.nav-link:hover, .nav-link.active {
-  background: var(--surface2);
-  border-left-color: var(--amber);
-  color: var(--amber);
-  opacity: 1;
-}
-.nav-dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--muted);
-  flex-shrink: 0;
-}
-.nav-link.active .nav-dot, .nav-link:hover .nav-dot { background: var(--amber); }
+/* SIDEBAR */
+#sidebar{width:270px;min-width:270px;background:var(--surface);border-right:1px solid var(--border);position:sticky;top:0;height:100vh;overflow-y:auto;padding:0 0 2rem;}
+#sidebar::-webkit-scrollbar{width:4px;}
+#sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.sb-head{padding:1.5rem 1.4rem 1rem;border-bottom:1px solid var(--border);margin-bottom:.8rem;}
+.sb-head h1{font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:var(--amber);letter-spacing:.05em;text-transform:uppercase;}
+.sb-head p{font-size:.8rem;color:var(--muted);margin-top:.2rem;font-family:var(--font-mono);}
+.nav-label{padding:.35rem 1.4rem;font-family:var(--font-mono);font-size:.63rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);display:block;margin-top:.8rem;}
+.nav-link{display:flex;align-items:center;gap:8px;padding:.38rem 1.4rem;color:var(--text);text-decoration:none;font-size:.86rem;font-family:var(--font-body);transition:all .15s;border-left:2px solid transparent;opacity:.72;}
+.nav-link:hover,.nav-link.active{background:var(--surface2);border-left-color:var(--amber);color:var(--amber);opacity:1;}
+.nav-dot{width:5px;height:5px;border-radius:50%;background:var(--muted);flex-shrink:0;}
+.nav-link.active .nav-dot,.nav-link:hover .nav-dot{background:var(--amber);}
+.nav-sub{padding-left:2.2rem;font-size:.8rem;opacity:.6;}
+.nav-sub:hover,.nav-sub.active{opacity:1;}
 
-/* ─── MAIN ─── */
-#main {
-  flex: 1;
-  max-width: 860px;
-  padding: 3rem 3.5rem;
-  overflow-x: hidden;
-}
-.hero {
-  margin-bottom: 3.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
-}
-.hero .tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--amber);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.8rem;
-  display: block;
-}
-.hero h1 {
-  font-family: var(--font-head);
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-}
-.hero p { color: var(--muted); max-width: 600px; font-size: 1rem; }
-.pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
-.pill {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.25rem 0.65rem;
-  border: 1px solid var(--border2);
-  border-radius: 2rem;
-  color: var(--muted);
-}
+/* MAIN */
+#main{flex:1;max-width:880px;padding:3rem 3.5rem;overflow-x:hidden;}
+.hero{margin-bottom:3.5rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+.hero .tag{font-family:var(--font-mono);font-size:.72rem;color:var(--amber);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.8rem;display:block;}
+.hero h1{font-family:var(--font-head);font-size:3rem;font-weight:800;line-height:1.1;margin-bottom:1rem;}
+.hero p{color:var(--muted);max-width:600px;font-size:1rem;}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
+.pill{font-family:var(--font-mono);font-size:.7rem;padding:.25rem .65rem;border:1px solid var(--border2);border-radius:2rem;color:var(--muted);}
 
-/* ─── SECTION ─── */
-.section { margin-bottom: 4rem; }
-.section-head {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.8rem;
-}
-.section-num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--amber);
-  background: rgba(240,168,48,0.08);
-  border: 1px solid rgba(240,168,48,0.25);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-}
-.section-head h2 {
-  font-family: var(--font-head);
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: var(--text);
-}
-h3 {
-  font-family: var(--font-head);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--amber);
-  margin: 2rem 0 0.8rem;
-}
-h4 {
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--blue);
-  margin: 1.4rem 0 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-p { margin-bottom: 0.9rem; }
+/* SECTIONS */
+.section{margin-bottom:4rem;}
+.section-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
+.section-num{font-family:var(--font-mono);font-size:.7rem;color:var(--amber);background:rgba(240,168,48,.08);border:1px solid rgba(240,168,48,.25);padding:.2rem .55rem;border-radius:4px;}
+.section-head h2{font-family:var(--font-head);font-size:1.7rem;font-weight:700;}
+h3{font-family:var(--font-head);font-size:1.15rem;font-weight:700;color:var(--amber);margin:2rem 0 .8rem;}
+h4{font-family:var(--font-mono);font-size:.86rem;font-weight:500;color:var(--blue);margin:1.4rem 0 .5rem;text-transform:uppercase;letter-spacing:.06em;}
+p{margin-bottom:.9rem;}
+ul,ol{padding-left:1.4rem;margin-bottom:.9rem;}
+li{margin-bottom:.4rem;}
+strong{color:var(--text);font-weight:600;}
 
-/* ─── CARDS ─── */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.3rem 1.5rem;
-  margin: 1.2rem 0;
-}
-.card-amber { border-left: 3px solid var(--amber); }
-.card-blue { border-left: 3px solid var(--blue); }
-.card-teal { border-left: 3px solid var(--teal); }
-.card-red { border-left: 3px solid var(--red); }
-.card-green { border-left: 3px solid var(--green); }
-.card-purple { border-left: 3px solid var(--purple); }
-.card-title {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
-}
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.3rem 1.5rem;margin:1.2rem 0;}
+.card-amber{border-left:3px solid var(--amber);}
+.card-blue{border-left:3px solid var(--blue);}
+.card-teal{border-left:3px solid var(--teal);}
+.card-red{border-left:3px solid var(--red);}
+.card-green{border-left:3px solid var(--green);}
+.card-purple{border-left:3px solid var(--purple);}
+.card-title{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.6rem;}
 
-/* ─── CODE ─── */
-pre, code {
-  font-family: var(--font-mono);
-  font-size: 0.83rem;
-}
-pre {
-  background: #060a10;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1.2rem 1.4rem;
-  overflow-x: auto;
-  margin: 1rem 0;
-  line-height: 1.6;
-  color: #c9d8e8;
-}
-code {
-  background: rgba(91,163,245,0.1);
-  color: var(--blue);
-  padding: 0.1em 0.35em;
-  border-radius: 3px;
-  font-size: 0.85em;
-}
-pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
-.kw { color: var(--purple); }
-.fn { color: var(--blue); }
-.cm { color: var(--muted); font-style: italic; }
-.num { color: var(--teal); }
-.st { color: var(--green); }
+/* THEOREM */
+.theorem{background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.25);border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;}
+.theorem-label{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--purple);margin-bottom:.5rem;}
 
-/* ─── MATH ─── */
-.math {
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  color: var(--teal);
-  background: rgba(46,196,182,0.07);
-  border: 1px solid rgba(46,196,182,0.2);
-  padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  margin: 0.8rem 0;
-  display: block;
-}
-.big-o { color: var(--amber); font-family: var(--font-mono); }
-.theta { color: var(--teal); font-family: var(--font-mono); }
-.omega { color: var(--blue); font-family: var(--font-mono); }
+/* CODE */
+pre,code{font-family:var(--font-mono);font-size:.83rem;}
+pre{background:#060a10;border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.3rem;overflow-x:auto;margin:.9rem 0;line-height:1.65;color:#c9d8e8;}
+code{background:rgba(91,163,245,.1);color:var(--blue);padding:.1em .35em;border-radius:3px;font-size:.85em;}
+pre code{background:none;color:inherit;padding:0;font-size:inherit;}
+.kw{color:var(--purple);}.fn{color:var(--blue);}.cm{color:var(--muted);font-style:italic;}.num{color:var(--teal);}.st{color:var(--green);}
 
-/* ─── TABLES ─── */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 0.88rem;
-}
-th {
-  background: var(--surface2);
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.6rem 0.9rem;
-  text-align: left;
-  border: 1px solid var(--border);
-}
-td {
-  padding: 0.55rem 0.9rem;
-  border: 1px solid var(--border);
-  vertical-align: top;
-}
-tr:nth-child(even) td { background: rgba(22,32,47,0.5); }
-td code { font-size: 0.8rem; }
+/* MATH */
+.math{font-family:var(--font-mono);font-size:.9rem;color:var(--teal);background:rgba(46,196,182,.07);border:1px solid rgba(46,196,182,.2);padding:.8rem 1.2rem;border-radius:6px;margin:.8rem 0;display:block;}
+.big-o{color:var(--amber);font-family:var(--font-mono);}
+.theta{color:var(--teal);font-family:var(--font-mono);}
+.omega{color:var(--blue);font-family:var(--font-mono);}
 
-/* ─── PRACTICE ─── */
-.practice-block {
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  margin: 1.5rem 0;
-  overflow: hidden;
-}
-.practice-q {
-  padding: 1rem 1.3rem;
-  font-style: italic;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-.practice-q:hover { background: rgba(240,168,48,0.04); }
-.toggle-btn {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--amber);
-  background: rgba(240,168,48,0.1);
-  border: 1px solid rgba(240,168,48,0.3);
-  padding: 0.2rem 0.7rem;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: 0.15s;
-}
-.toggle-btn:hover { background: rgba(240,168,48,0.2); }
-.practice-a {
-  display: none;
-  padding: 1rem 1.3rem;
-  border-top: 1px solid var(--border);
-  background: rgba(0,0,0,0.25);
-  font-size: 0.93rem;
-}
-.practice-a.open { display: block; }
-.practice-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--green);
-  margin-bottom: 0.5rem;
-}
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem;}
+th{background:var(--surface2);color:var(--muted);font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;padding:.6rem .9rem;text-align:left;border:1px solid var(--border);}
+td{padding:.55rem .9rem;border:1px solid var(--border);vertical-align:top;}
+tr:nth-child(even) td{background:rgba(22,32,47,.5);}
+td code{font-size:.8rem;}
 
-/* ─── GRID ─── */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
-@media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+/* PRACTICE BLOCKS */
+.pblock{background:var(--surface2);border:1px solid var(--border2);border-radius:8px;margin:1.5rem 0;overflow:hidden;}
+.pq{padding:1rem 1.3rem;font-style:italic;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.pq:hover{background:rgba(240,168,48,.04);}
+.tbtn{font-family:var(--font-mono);font-size:.7rem;color:var(--amber);background:rgba(240,168,48,.1);border:1px solid rgba(240,168,48,.3);padding:.2rem .7rem;border-radius:4px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:.15s;}
+.tbtn:hover{background:rgba(240,168,48,.2);}
+.pa{display:none;padding:1rem 1.3rem;border-top:1px solid var(--border);background:rgba(0,0,0,.25);font-size:.93rem;}
+.pa.open{display:block;}
+.pa-label{font-family:var(--font-mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:.5rem;}
 
-/* ─── STEP LIST ─── */
-.steps { list-style: none; }
-.steps li {
-  display: flex;
-  gap: 0.9rem;
-  margin-bottom: 0.8rem;
-  align-items: flex-start;
-}
-.step-num {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--amber);
-  background: rgba(240,168,48,0.12);
-  border: 1px solid rgba(240,168,48,0.3);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
+/* LAYOUT */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0;}
+@media(max-width:720px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+.divider{border:none;border-top:1px solid var(--border);margin:2.5rem 0;}
 
-/* ─── DIVIDER ─── */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 2.5rem 0;
-}
+/* STEPS */
+.steps{list-style:none;padding:0;}
+.steps li{display:flex;gap:.9rem;margin-bottom:.8rem;align-items:flex-start;}
+.snum{font-family:var(--font-mono);font-size:.7rem;color:var(--amber);background:rgba(240,168,48,.12);border:1px solid rgba(240,168,48,.3);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.2rem;}
 
-/* ─── INTERACTIVE ─── */
-.interactive {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.3rem 1.5rem;
-  margin: 1.5rem 0;
-}
-.interactive h4 { margin-top: 0; }
-.input-row { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; margin: 0.8rem 0; }
-.input-row label { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
-.input-row input, .input-row select {
-  background: var(--bg);
-  border: 1px solid var(--border2);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  padding: 0.35rem 0.7rem;
-  border-radius: 5px;
-  width: 80px;
-}
-.input-row select { width: 140px; }
-.calc-btn {
-  background: var(--amber);
-  color: #000;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  border: none;
-  padding: 0.4rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.15s;
-}
-.calc-btn:hover { background: #ffd060; }
-.result-box {
-  background: rgba(0,0,0,0.35);
-  border: 1px solid var(--border2);
-  border-radius: 6px;
-  padding: 0.9rem 1.1rem;
-  margin-top: 0.8rem;
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  min-height: 3rem;
-}
-.result-box .res-answer { color: var(--teal); font-size: 1.1rem; margin-bottom: 0.3rem; }
-.result-box .res-explain { color: var(--muted); font-size: 0.78rem; }
+/* INTERACTIVE */
+.interactive{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.3rem 1.5rem;margin:1.5rem 0;}
+.interactive h4{margin-top:0;}
+.irow{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin:.8rem 0;}
+.irow label{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);}
+.irow input,.irow select{background:var(--bg);border:1px solid var(--border2);color:var(--text);font-family:var(--font-mono);font-size:.82rem;padding:.35rem .7rem;border-radius:5px;width:80px;}
+.irow select{width:150px;}
+.cbtn{background:var(--amber);color:#000;font-family:var(--font-mono);font-size:.8rem;font-weight:500;border:none;padding:.4rem 1rem;border-radius:5px;cursor:pointer;transition:.15s;}
+.cbtn:hover{background:#ffd060;}
+.rbox{background:rgba(0,0,0,.35);border:1px solid var(--border2);border-radius:6px;padding:.9rem 1.1rem;margin-top:.8rem;font-family:var(--font-mono);font-size:.88rem;min-height:3rem;}
+.rbox .ra{color:var(--teal);font-size:1.05rem;margin-bottom:.3rem;}
+.rbox .re{color:var(--muted);font-size:.78rem;}
 
-/* ─── RADIX DEMO ─── */
-.radix-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin: 1rem 0;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-.radix-col { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem; }
-.radix-col-head {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.3rem;
-}
-.radix-num { padding: 0.15rem 0; color: var(--text); }
-.radix-hl { color: var(--amber); font-weight: 500; }
+/* ALGO COMPARISON TABLE */
+.algo-compare td:first-child{font-weight:600;font-family:var(--font-mono);font-size:.82rem;color:var(--amber);}
 
-/* ─── ALGO TRACE ─── */
-.trace-box {
-  background: #060a10;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 1rem 1.2rem;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  margin: 1rem 0;
-  line-height: 2;
-}
-.trace-step { color: var(--muted); }
-.trace-step .hl { color: var(--amber); }
-.trace-step .hl2 { color: var(--teal); }
-.trace-step .hl3 { color: var(--blue); }
+/* SORTING VISUALIZER */
+.bars-wrap{display:flex;align-items:flex-end;gap:3px;height:120px;padding:.5rem 0;border-bottom:1px solid var(--border);}
+.bar{background:var(--blue);border-radius:2px 2px 0 0;transition:background .2s,height .25s;min-width:18px;display:flex;align-items:flex-start;justify-content:center;}
+.bar span{font-family:var(--font-mono);font-size:.6rem;color:rgba(0,0,0,.7);padding-top:2px;}
+.bar.active{background:var(--amber);}
+.bar.sorted{background:var(--green);}
+.bar.comparing{background:var(--red);}
+.sort-controls{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem;align-items:center;}
+.sort-controls button{font-family:var(--font-mono);font-size:.75rem;padding:.3rem .8rem;border-radius:4px;cursor:pointer;border:1px solid var(--border2);background:var(--surface2);color:var(--text);transition:.15s;}
+.sort-controls button:hover{background:var(--surface);border-color:var(--amber);color:var(--amber);}
+.sort-controls button.primary{background:var(--amber);color:#000;border:none;}
+.sort-controls button.primary:hover{background:#ffd060;}
+#sort-status{font-family:var(--font-mono);font-size:.75rem;color:var(--muted);margin-top:.5rem;min-height:1.4em;}
+#sort-algo-select{font-family:var(--font-mono);font-size:.78rem;background:var(--bg);border:1px solid var(--border2);color:var(--text);padding:.3rem .6rem;border-radius:4px;}
 
-/* ─── THEOREM BOX ─── */
-.theorem {
-  background: rgba(167,139,250,0.06);
-  border: 1px solid rgba(167,139,250,0.25);
-  border-radius: 8px;
-  padding: 1.2rem 1.5rem;
-  margin: 1.2rem 0;
-}
-.theorem-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--purple);
-  margin-bottom: 0.5rem;
-}
+/* RADIX TABLE */
+.radix-wrap{overflow-x:auto;margin:1rem 0;}
+.radix-table{border-collapse:collapse;font-family:var(--font-mono);font-size:.84rem;min-width:500px;}
+.radix-table th{background:var(--surface2);color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;padding:.5rem .9rem;border:1px solid var(--border);}
+.radix-table td{padding:.4rem .9rem;border:1px solid var(--border);text-align:center;}
+.hl-digit{color:var(--amber);font-weight:700;}
+.sorted-row td{background:rgba(80,216,144,.07);}
 
-/* ─── SCROLLBAR ─── */
-#main::-webkit-scrollbar { width: 4px; }
-#main::-webkit-scrollbar-thumb { background: var(--border2); }
+/* ADJACENCY MATRIX */
+.adj-wrap{display:flex;gap:2rem;flex-wrap:wrap;margin:1rem 0;}
+.adj-matrix{font-family:var(--font-mono);font-size:.83rem;}
+.adj-matrix caption{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.4rem;text-align:left;}
+.adj-matrix td,.adj-matrix th{padding:.35rem .65rem;text-align:center;border:1px solid var(--border);}
+.adj-matrix th{background:var(--surface2);color:var(--amber);font-size:.78rem;}
+.adj-matrix td{color:var(--text);}
+.adj-matrix .edge{color:var(--teal);font-weight:600;}
+.adj-matrix .inf{color:var(--muted);}
 
-/* ─── ACTIVE NAV ─── */
-.nav-link.active { opacity: 1; color: var(--amber); border-left-color: var(--amber); }
-
-ul li, ol li { margin-bottom: 0.4rem; }
-ul, ol { padding-left: 1.4rem; margin-bottom: 0.9rem; }
-strong { color: var(--text); font-weight: 600; }
+/* TRACE BOX */
+.trace{background:#060a10;border:1px solid var(--border);border-radius:6px;padding:1rem 1.2rem;font-family:var(--font-mono);font-size:.82rem;margin:1rem 0;line-height:1.9;}
+.th1{color:var(--amber);}
+.th2{color:var(--teal);}
+.th3{color:var(--blue);}
+.th4{color:var(--red);}
+.th5{color:var(--green);}
 </style>
 </head>
 <body>
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
-  <div class="sidebar-header">
+  <div class="sb-head">
     <h1>CMSC 441</h1>
     <p>Final Exam Study Guide</p>
   </div>
   <span class="nav-label">Topics</span>
-  <div class="nav-section">
-    <a href="#s1" class="nav-link active"><span class="nav-dot"></span>Induction &amp; Trees</a>
-    <a href="#s2" class="nav-link"><span class="nav-dot"></span>Recurrences</a>
-    <a href="#s3" class="nav-link"><span class="nav-dot"></span>Sorting Algorithms</a>
-    <a href="#s4" class="nav-link"><span class="nav-dot"></span>Dynamic Programming</a>
-    <a href="#s5" class="nav-link"><span class="nav-dot"></span>Graph Algorithms</a>
-    <a href="#s6" class="nav-link"><span class="nav-dot"></span>NP-Completeness</a>
-    <a href="#s7" class="nav-link"><span class="nav-dot"></span>Algorithm Design</a>
-  </div>
+  <a href="#s1" class="nav-link"><span class="nav-dot"></span>Induction &amp; Trees</a>
+  <a href="#s2" class="nav-link"><span class="nav-dot"></span>Recurrences</a>
+  <a href="#s3" class="nav-link"><span class="nav-dot"></span>Sorting — Overview</a>
+  <a href="#s3b" class="nav-link nav-sub"><span class="nav-dot"></span>Insertion Sort</a>
+  <a href="#s3c" class="nav-link nav-sub"><span class="nav-dot"></span>Merge Sort</a>
+  <a href="#s3d" class="nav-link nav-sub"><span class="nav-dot"></span>QuickSort</a>
+  <a href="#s3e" class="nav-link nav-sub"><span class="nav-dot"></span>Comparison Lower Bound</a>
+  <a href="#s3f" class="nav-link nav-sub"><span class="nav-dot"></span>Radix Sort</a>
+  <a href="#s4" class="nav-link"><span class="nav-dot"></span>Dynamic Programming</a>
+  <a href="#s5" class="nav-link"><span class="nav-dot"></span>Graph Algorithms</a>
+  <a href="#s5b" class="nav-link nav-sub"><span class="nav-dot"></span>Adjacency Matrices</a>
+  <a href="#s5c" class="nav-link nav-sub"><span class="nav-dot"></span>BFS / DFS</a>
+  <a href="#s5d" class="nav-link nav-sub"><span class="nav-dot"></span>Dijkstra's</a>
+  <a href="#s5e" class="nav-link nav-sub"><span class="nav-dot"></span>Bellman-Ford</a>
+  <a href="#s5f" class="nav-link nav-sub"><span class="nav-dot"></span>Kruskal's MST</a>
+  <a href="#s6" class="nav-link"><span class="nav-dot"></span>NP-Completeness</a>
+  <a href="#s7" class="nav-link"><span class="nav-dot"></span>Algorithm Design</a>
+  <a href="#sref" class="nav-link"><span class="nav-dot"></span>Quick Reference</a>
   <span class="nav-label">Tools</span>
-  <a href="#master-calc" class="nav-link"><span class="nav-dot"></span>Master Theorem Calc</a>
-  <a href="#radix-demo" class="nav-link"><span class="nav-dot"></span>Radix Sort Demo</a>
-  <a href="#dijkstra-trace" class="nav-link"><span class="nav-dot"></span>Dijkstra's Trace</a>
+  <a href="#master-calc" class="nav-link nav-sub"><span class="nav-dot"></span>Master Thm. Calc</a>
+  <a href="#sort-viz" class="nav-link nav-sub"><span class="nav-dot"></span>Sorting Visualizer</a>
+  <a href="#radix-demo" class="nav-link nav-sub"><span class="nav-dot"></span>Radix Sort Demo</a>
+  <a href="#dijkstra-trace" class="nav-link nav-sub"><span class="nav-dot"></span>Dijkstra's Trace</a>
 </nav>
 
-<!-- MAIN CONTENT -->
 <main id="main">
 
-  <div class="hero">
-    <span class="tag">Study Guide · Spring 2025</span>
-    <h1>Algorithms<br>Final Exam</h1>
-    <p>A comprehensive reference covering every topic from the CMSC 441 final — with theorems, worked examples, pseudocode, and practice problems with solutions.</p>
-    <div class="pills">
-      <span class="pill">Induction</span>
-      <span class="pill">Master Theorem</span>
-      <span class="pill">Sorting</span>
-      <span class="pill">LCS / DP</span>
-      <span class="pill">BFS / DFS</span>
-      <span class="pill">Dijkstra's</span>
-      <span class="pill">Kruskal's</span>
-      <span class="pill">NP / SAT / TSP</span>
+<!-- HERO -->
+<div class="hero">
+  <span class="tag">Study Guide · Spring 2025 Final</span>
+  <h1>Algorithms<br>Final Exam</h1>
+  <p>All 7 topic areas — with full proofs, worked examples, traced algorithms, adjacency matrices, and practice problems with hidden solutions. Rebuilt with complete sorting deep-dives and fixed worked examples.</p>
+  <div class="pills">
+    <span class="pill">Induction</span><span class="pill">Master Theorem</span>
+    <span class="pill">Insertion Sort</span><span class="pill">Merge Sort</span><span class="pill">QuickSort</span>
+    <span class="pill">Radix Sort</span><span class="pill">LCS / DP</span>
+    <span class="pill">BFS / DFS</span><span class="pill">Dijkstra's</span>
+    <span class="pill">Kruskal's</span><span class="pill">NP / SAT / TSP</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — INDUCTION & TREES                       -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-head"><span class="section-num">01</span><h2>Induction &amp; Tree Properties</h2></div>
+
+  <div class="card card-amber">
+    <div class="card-title">Key Definition — Perfect Binary Tree</div>
+    A <strong>perfect binary tree</strong> of height <em>h</em> is a binary tree where (1) all leaves are on the same level and (2) every non-leaf node has exactly <strong>two</strong> children. Height 0 = a single node, which is itself the only leaf.
+  </div>
+
+  <h3>Theorem: A Perfect Binary Tree of Height h Has 2<sup>h</sup> Leaves</h3>
+
+  <div class="theorem">
+    <div class="theorem-label">Theorem</div>
+    Let P(h) be the statement "a perfect binary tree of height h has exactly 2<sup>h</sup> leaves." P(h) holds for all h ≥ 0.
+  </div>
+
+  <h4>Base Case — h = 0</h4>
+  <p>A height-0 tree is a single node with no children. It is simultaneously the root and a leaf. Leaf count = 1 = 2<sup>0</sup>. ✓</p>
+
+  <h4>Inductive Hypothesis</h4>
+  <p>Assume P(k) holds: a perfect binary tree of height <em>k</em> has exactly <strong>2<sup>k</sup> leaves</strong>.</p>
+
+  <h4>Inductive Step — Show P(k+1)</h4>
+  <p>A perfect binary tree of height k+1 consists of a root with exactly two subtrees. Because the tree is perfect, each subtree is a perfect binary tree of height <em>k</em>. By the inductive hypothesis each has 2<sup>k</sup> leaves. The root itself is not a leaf (it has children), so all leaves of the tree come from the two subtrees:</p>
+  <span class="math">Total leaves = 2<sup>k</sup> + 2<sup>k</sup> = 2·2<sup>k</sup> = 2<sup>k+1</sup></span>
+  <p>P(k+1) holds. By induction, P(h) holds for all h ≥ 0. □</p>
+
+  <div class="card card-teal">
+    <div class="card-title">Corollary — Total Node Count</div>
+    Summing nodes across all h+1 levels: 2<sup>0</sup>+2<sup>1</sup>+…+2<sup>h</sup> = 2<sup>h+1</sup>−1 (finite geometric series with r=2). So a perfect tree of height h has <strong>2<sup>h+1</sup>−1 total nodes</strong>.
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: Write the general structure of an induction proof. What must the inductive step show?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      An induction proof has three parts: (1) <strong>Base case</strong> — verify the claim for the smallest value (usually n=0 or n=1). (2) <strong>Inductive hypothesis</strong> — assume the claim holds for some arbitrary value k. (3) <strong>Inductive step</strong> — using only the hypothesis, prove the claim holds for k+1. The key constraint is that the inductive step must derive P(k+1) <em>from</em> P(k) without assuming P(k+1) itself.
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 1: INDUCTION AND TREES                  -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s1">
-    <div class="section-head">
-      <span class="section-num">01</span>
-      <h2>Induction &amp; Tree Properties</h2>
+  <div class="pblock">
+    <div class="pq"><span>Practice: How many leaves and total nodes does a perfect binary tree of height 5 have?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      <strong>Leaves:</strong> 2<sup>5</sup> = 32.<br>
+      <strong>Total nodes:</strong> 2<sup>6</sup>−1 = 63.<br>
+      Verify: level 0 has 1, level 1 has 2, …, level 5 has 32. Sum = 63.
     </div>
+  </div>
+</section>
+<hr class="divider">
 
-    <div class="card card-amber">
-      <div class="card-title">Key Definition</div>
-      A <strong>perfect binary tree</strong> of height <em>h</em> is a tree where all leaves are on the same level and every non-leaf node has exactly two children. A height-0 tree is a single node (1 leaf).
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — RECURRENCES                             -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-head"><span class="section-num">02</span><h2>Recurrences &amp; Asymptotic Analysis</h2></div>
+
+  <div class="theorem">
+    <div class="theorem-label">Master Theorem</div>
+    For T(n) = aT(n/b) + f(n) (a≥1, b>1, f polynomial), compute the <strong>critical exponent</strong> crit = log<sub>b</sub>(a):
+    <ul style="margin-top:.7rem;">
+      <li><strong>Case I — recursion wins:</strong> f(n) ∈ O(n<sup>crit−ε</sup>) for some ε>0 → T(n) ∈ Θ(n<sup>crit</sup>)</li>
+      <li><strong>Case II — tie:</strong> f(n) ∈ Θ(n<sup>crit</sup>) → T(n) ∈ Θ(n<sup>crit</sup> log n)</li>
+      <li><strong>Case III — function wins:</strong> f(n) ∈ Ω(n<sup>crit+ε</sup>) for some ε>0 → T(n) ∈ Θ(f(n))</li>
+    </ul>
+  </div>
+
+  <!-- MASTER THEOREM CALCULATOR -->
+  <div class="interactive" id="master-calc">
+    <h4>Interactive Master Theorem Calculator</h4>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:.8rem;">For T(n) = a·T(n/b) + Θ(n<sup>p</sup>). Enter a, b, and the exponent p of f(n).</p>
+    <div class="irow">
+      <label>a =</label><input type="number" id="mt-a" value="4" min="1">
+      <label>b =</label><input type="number" id="mt-b" value="4" min="2">
+      <label>p =</label><input type="number" id="mt-p" value="1" step="0.1">
+      <button class="cbtn" onclick="calcMaster()">Calculate</button>
     </div>
-
-    <h3>Proof: A Perfect Binary Tree of Height h Has 2<sup>h</sup> Leaves</h3>
-
-    <div class="theorem">
-      <div class="theorem-label">Theorem</div>
-      For a perfect binary tree of height <em>h</em> (where height 0 = single node), the number of leaves is exactly <strong>2<sup>h</sup></strong>.
+    <div class="rbox" id="mt-result">
+      <div class="ra">T(n) = Θ(n log n)</div>
+      <div class="re">4T(n/4)+Θ(n): crit = n^log₄4 = n¹. f(n)=Θ(n¹) → Case II → multiply by log n.</div>
     </div>
+  </div>
 
-    <h4>Base Case (h = 0)</h4>
-    <p>A tree of height 0 is a single node with no children — it is both the root and a leaf. It has <strong>2<sup>0</sup> = 1</strong> leaf. ✓</p>
+  <h3>All Exam Recurrences — Master Theorem</h3>
+  <table>
+    <thead><tr><th>Recurrence</th><th>a,b</th><th>crit = n<sup>log<sub>b</sub>a</sup></th><th>Case</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr><td><code>T(n)=16T(n/2)+Θ(n⁴)</code></td><td>16,2</td><td>n<sup>4</sup></td><td>II (tie)</td><td class="theta">Θ(n⁴ log n)</td></tr>
+      <tr><td><code>T(n)=3T(n/3)+Θ(n²)</code></td><td>3,3</td><td>n<sup>1</sup></td><td>III (f wins)</td><td class="theta">Θ(n²)</td></tr>
+      <tr><td><code>T(n)=25T(n/5)+Θ(n³)</code></td><td>25,5</td><td>n<sup>2</sup></td><td>III (f wins)</td><td class="theta">Θ(n³)</td></tr>
+      <tr><td><code>T(n)=4T(n/4)+n</code></td><td>4,4</td><td>n<sup>1</sup></td><td>II (tie)</td><td class="theta">Θ(n log n)</td></tr>
+      <tr><td><code>T(n)=8T(n/4)+n²</code></td><td>8,4</td><td>n<sup>1.5</sup></td><td>III (f wins)</td><td class="theta">Θ(n²)</td></tr>
+      <tr><td><code>T(n)=2T(n/3)+n√n</code></td><td>2,3</td><td>n<sup>0.63</sup></td><td>III (f wins)</td><td class="theta">Θ(n^1.5)</td></tr>
+    </tbody>
+  </table>
 
-    <h4>Inductive Hypothesis</h4>
-    <p>Assume a perfect binary tree of height <em>k</em> has exactly <strong>2<sup>k</sup> leaves</strong>.</p>
+  <h3>Substitution / Unrolling Method</h3>
+  <p>When the recurrence has the form T(n−k) — not T(n/b) — the Master Theorem does not apply. Unroll manually and look for a pattern.</p>
 
-    <h4>Inductive Step (show true for h = k + 1)</h4>
-    <p>A perfect binary tree of height <em>k + 1</em> has a root with two subtrees. Each subtree is a perfect binary tree of height <em>k</em>. By the inductive hypothesis, each subtree has <strong>2<sup>k</sup></strong> leaves.</p>
-    <p>All leaves of the full tree come from these two subtrees (the root is not a leaf since k + 1 ≥ 1). Therefore:</p>
-    <span class="math">Total leaves = 2<sup>k</sup> + 2<sup>k</sup> = 2 · 2<sup>k</sup> = 2<sup>k+1</sup></span>
-    <p>This completes the induction. A perfect binary tree of height <em>h</em> has exactly 2<sup>h</sup> leaves. □</p>
-
-    <h4>Useful Corollary</h4>
-    <div class="card card-teal">
-      <div class="card-title">Node Count</div>
-      A perfect binary tree of height <em>h</em> has <strong>2<sup>h+1</sup> − 1</strong> total nodes (sum of all levels: 2<sup>0</sup> + 2<sup>1</sup> + … + 2<sup>h</sup> = 2<sup>h+1</sup> − 1 by the geometric series formula).
-    </div>
-
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: How many leaves does a perfect binary tree of height 4 have? How many total nodes?</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        <strong>Leaves:</strong> 2<sup>4</sup> = <strong>16 leaves</strong><br>
-        <strong>Total nodes:</strong> 2<sup>5</sup> − 1 = <strong>31 nodes</strong><br>
-        Check: levels 0–4 have 1 + 2 + 4 + 8 + 16 = 31 nodes.
-      </div>
-    </div>
-
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice (Fa21 Q1): Prove by induction that the worst case of insertion sort is O(n²) using the fact that it makes at most n(n−1)/2 swaps.</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        <strong>Base case n = 1:</strong> 0 swaps. Formula: 1·0/2 = 0. ✓<br><br>
-        <strong>Inductive hypothesis:</strong> Assume a list of size <em>n</em> requires at most <em>n(n−1)/2</em> swaps.<br><br>
-        <strong>Inductive step (n → n+1):</strong> A list of size n+1 can have at most <em>n</em> additional swaps (the new element can bubble all the way from position n down to position 0). So:<br>
-        <span class="math">n(n−1)/2 + n = (n² − n + 2n) / 2 = n(n+1)/2</span>
-        This equals (n+1)((n+1)−1)/2, confirming the formula holds for n+1. Since the total swaps are O(n²), insertion sort is O(n²) worst case. □
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 2: RECURRENCES                          -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s2">
-    <div class="section-head">
-      <span class="section-num">02</span>
-      <h2>Recurrences &amp; Asymptotic Analysis</h2>
-    </div>
-
-    <div class="theorem">
-      <div class="theorem-label">Master Theorem</div>
-      For T(n) = aT(n/b) + f(n) where f(n) is polynomial, compute <strong>crit(n) = n<sup>log<sub>b</sub>(a)</sup></strong>:
-      <ul style="margin-top:0.7rem;">
-        <li><strong>Case I:</strong> f(n) ∈ O(n<sup>log<sub>b</sub>(a) − ε</sup>) → T(n) ∈ Θ(n<sup>log<sub>b</sub>(a)</sup>)&emsp;<em>recursion dominates</em></li>
-        <li><strong>Case II:</strong> f(n) ∈ Θ(n<sup>log<sub>b</sub>(a)</sup>) → T(n) ∈ Θ(n<sup>log<sub>b</sub>(a)</sup> log n)&emsp;<em>tie — multiply by log n</em></li>
-        <li><strong>Case III:</strong> f(n) ∈ Ω(n<sup>log<sub>b</sub>(a) + ε</sup>) → T(n) ∈ Θ(f(n))&emsp;<em>function dominates</em></li>
-      </ul>
-    </div>
-
-    <!-- MASTER THEOREM CALCULATOR -->
-    <div class="interactive" id="master-calc">
-      <h4>Interactive Master Theorem Calculator</h4>
-      <p style="font-size:0.88rem; color:var(--muted); margin-bottom:0.8rem;">Enter the parameters of T(n) = a·T(n/b) + Θ(n<sup>p</sup>) to determine the case and solution.</p>
-      <div class="input-row">
-        <label>a =</label><input type="number" id="mt-a" value="4" min="1">
-        <label>b =</label><input type="number" id="mt-b" value="4" min="2">
-        <label>p (exponent of f(n)) =</label><input type="number" id="mt-p" value="1" step="0.1">
-        <button class="calc-btn" onclick="calcMaster()">Calculate ↗</button>
-      </div>
-      <div class="result-box" id="mt-result">
-        <div class="res-answer">T(n) = Θ(n log n)</div>
-        <div class="res-explain">Example: T(n) = 4T(n/4) + Θ(n). crit = n^log₄(4) = n¹. f(n) = n¹ = Θ(n¹) → Case II → multiply by log n.</div>
-      </div>
-    </div>
-
-    <h3>Worked Recurrences from the Exam</h3>
-
-    <table>
-      <thead>
-        <tr><th>Recurrence</th><th>crit(n) = n<sup>log<sub>b</sub>a</sup></th><th>Case</th><th>Result</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>T(n) = 16T(n/2) + Θ(n⁴)</code></td>
-          <td>n<sup>log₂16</sup> = n<sup>4</sup></td>
-          <td>Case II (tie)</td>
-          <td class="theta">Θ(n⁴ log n)</td>
-        </tr>
-        <tr>
-          <td><code>T(n) = 3T(n/3) + Θ(n²)</code></td>
-          <td>n<sup>log₃3</sup> = n<sup>1</sup></td>
-          <td>Case III (f wins)</td>
-          <td class="theta">Θ(n²)</td>
-        </tr>
-        <tr>
-          <td><code>T(n) = 25T(n/5) + Θ(n³)</code></td>
-          <td>n<sup>log₅25</sup> = n<sup>2</sup></td>
-          <td>Case III (f wins)</td>
-          <td class="theta">Θ(n³)</td>
-        </tr>
-        <tr>
-          <td><code>T(n) = 4T(n/4) + n</code></td>
-          <td>n<sup>log₄4</sup> = n<sup>1</sup></td>
-          <td>Case II (tie)</td>
-          <td class="theta">Θ(n log n)</td>
-        </tr>
-        <tr>
-          <td><code>T(n) = 8T(n/4) + n²</code></td>
-          <td>n<sup>log₄8</sup> = n<sup>1.5</sup></td>
-          <td>Case III (f wins)</td>
-          <td class="theta">Θ(n²)</td>
-        </tr>
-        <tr>
-          <td><code>T(n) = 2T(n/3) + n√n</code></td>
-          <td>n<sup>log₃2</sup> ≈ n<sup>0.63</sup></td>
-          <td>Case III (f wins)</td>
-          <td class="theta">Θ(n√n) = Θ(n^1.5)</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Substitution Method</h3>
-    <p>Use when the Master Theorem does not apply — particularly for recurrences of the form T(n−1) or T(n−k).</p>
-
-    <h4>T(n) = 3T(n − 1) + 1</h4>
-    <p>Expand by unrolling:</p>
-    <pre>T(n) = 3T(n−1) + 1
-     = 3(3T(n−2) + 1) + 1  = 3²T(n−2) + 3 + 1
-     = 3²(3T(n−3) + 1) + 3 + 1 = 3³T(n−3) + 3² + 3 + 1
+  <h4>T(n) = 3T(n−1) + 1</h4>
+  <pre>T(n) = 3T(n−1) + 1
+     = 3(3T(n−2)+1) + 1     = 3²T(n−2) + 3 + 1
+     = 3²(3T(n−3)+1) + 3+1  = 3³T(n−3) + 3² + 3 + 1
      ...
-     = 3ⁿT(0) + 3ⁿ⁻¹ + ... + 3 + 1
-     = 3ⁿ · (geometric sum) ≈ 3ⁿ · (3ⁿ−1)/(3−1)</pre>
-    <span class="math">T(n) ∈ Θ(3<sup>n</sup>)</span>
+     = 3ⁿT(0) + 3ⁿ⁻¹ + … + 3 + 1
+     = 3ⁿ · T(0) + (3ⁿ−1)/(3−1)   <span class="cm">// geometric series</span>
+     ∈ Θ(3ⁿ)</pre>
+  <span class="math">T(n) ∈ Θ(3<sup>n</sup>)  — exponential</span>
 
-    <h4>T(n) = nT(n − 1) + Θ(1)</h4>
-    <p>Unroll the product:</p>
-    <pre>T(n) = n · T(n−1) + 1
+  <h4>T(n) = nT(n−1) + Θ(1)</h4>
+  <pre>T(n) = n·T(n−1) + 1
      = n(n−1)T(n−2) + n + 1
-     = n(n−1)(n−2)T(n−3) + ...
-     → T(n) = O(n!)</pre>
-    <span class="math">T(n) ∈ O(n!)</span>
+     = n(n−1)(n−2)T(n−3) + …
+     → T(n) = n · (n−1) · (n−2) · … · 1 · T(0) + lower terms</pre>
+  <span class="math">T(n) ∈ O(n!)  — factorial</span>
 
-    <h4>T(n) = T(n/3) + T(n/4) + T(n/5) + n²</h4>
-    <div class="card card-blue">
-      <div class="card-title">Estimation Trick</div>
-      Since there are 3 recursive calls each on at most n/3, we bound: T(n) ≤ 3T(n/3) + n². Then crit = n<sup>log₃3</sup> = n. Since n² is Ω(n), we are in Case III, so <span class="theta">T(n) = Θ(n²)</span>.
+  <h4>T(n) = T(n/3) + T(n/4) + T(n/5) + n²  (Multiple Recursive Calls)</h4>
+  <div class="card card-blue">
+    <div class="card-title">Estimation Strategy</div>
+    Since T(n/3) ≥ T(n/4) ≥ T(n/5), bound above by 3T(n/3)+n². Apply Master Theorem: crit = n<sup>log₃3</sup> = n. Since n² ∈ Ω(n<sup>1+ε</sup>), Case III applies → <span class="theta">T(n) = Θ(n²)</span>.
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: Solve T(n) = 2T(n/4) + n using the Master Theorem.</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      a=2, b=4, f(n)=n. crit = n<sup>log₄2</sup> = n<sup>0.5</sup> = √n.<br>
+      Since n ∈ Ω(n<sup>0.5+ε</sup>) for ε=0.5, we are in <strong>Case III</strong>.<br>
+      Answer: <span class="theta">T(n) = Θ(n)</span>.
     </div>
+  </div>
 
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: Classify T(n) = 2T(n/3) + n√n using the Master Theorem.</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        a = 2, b = 3, f(n) = n<sup>3/2</sup>.<br>
-        crit(n) = n<sup>log₃2</sup> ≈ n<sup>0.63</sup>.<br>
-        Since n<sup>3/2</sup> ∈ Ω(n<sup>0.63 + ε</sup>) for ε ≈ 0.87, we are in <strong>Case III</strong>.<br>
-        Therefore <span class="theta">T(n) = Θ(n√n) = Θ(n^1.5)</span>.
-      </div>
+  <div class="pblock">
+    <div class="pq"><span>Practice: Why can't the Master Theorem be applied to T(n) = T(n−1) + n?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      The Master Theorem requires the form T(n) = aT(n/<strong>b</strong>) + f(n) where b>1. T(n−1) subtracts a constant, not divides by a constant — the problem size shrinks by subtraction, not by a fixed ratio. Unrolling: T(n) = T(n−1)+n = T(n−2)+(n−1)+n = … = T(0)+1+2+…+n = n(n+1)/2 ∈ <span class="theta">Θ(n²)</span>.
     </div>
-  </section>
+  </div>
+</section>
+<hr class="divider">
 
-  <hr class="divider">
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — SORTING OVERVIEW                        -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-head"><span class="section-num">03</span><h2>Sorting Algorithms — Overview</h2></div>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 3: SORTING                              -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s3">
-    <div class="section-head">
-      <span class="section-num">03</span>
-      <h2>Sorting Algorithms</h2>
+  <p>All sorting algorithms covered on the exam, compared at a glance:</p>
+
+  <table class="algo-compare">
+    <thead><tr><th>Algorithm</th><th>Best Case</th><th>Avg Case</th><th>Worst Case</th><th>Space</th><th>Stable?</th><th>Method</th></tr></thead>
+    <tbody>
+      <tr><td>Insertion Sort</td><td class="theta">Θ(n)</td><td class="big-o">O(n²)</td><td class="big-o">O(n²)</td><td>O(1)</td><td>Yes</td><td>Comparison</td></tr>
+      <tr><td>Merge Sort</td><td class="theta">Θ(n log n)</td><td class="theta">Θ(n log n)</td><td class="theta">Θ(n log n)</td><td>O(n)</td><td>Yes</td><td>Comparison</td></tr>
+      <tr><td>QuickSort</td><td class="theta">Θ(n log n)</td><td class="theta">Θ(n log n)</td><td class="big-o">O(n²)</td><td>O(log n)</td><td>No</td><td>Comparison</td></tr>
+      <tr><td>Radix Sort (LSD)</td><td class="theta">Θ(dn)</td><td class="theta">Θ(dn)</td><td class="theta">Θ(dn)</td><td>O(n+k)</td><td>Yes</td><td>Non-comparison</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.85rem;color:var(--muted);">d = number of digits; k = number of digit values (10 for decimal). For fixed-width integers, Radix Sort is effectively O(n).</p>
+
+  <!-- SORTING VISUALIZER -->
+  <div class="interactive" id="sort-viz">
+    <h4>Interactive Sorting Visualizer</h4>
+    <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:.8rem;">
+      <select id="sort-algo-select">
+        <option value="insertion">Insertion Sort</option>
+        <option value="merge">Merge Sort</option>
+        <option value="quick">QuickSort (middle pivot)</option>
+      </select>
+      <button class="cbtn" onclick="startSort()">▶ Sort</button>
+      <button onclick="resetBars()" style="font-family:var(--font-mono);font-size:.75rem;padding:.3rem .8rem;border-radius:4px;cursor:pointer;border:1px solid var(--border2);background:var(--surface2);color:var(--text);">Reset</button>
+      <label style="font-family:var(--font-mono);font-size:.75rem;color:var(--muted);">Speed:
+        <select id="speed-select" style="font-family:var(--font-mono);font-size:.75rem;background:var(--bg);border:1px solid var(--border2);color:var(--text);padding:.2rem .4rem;border-radius:4px;">
+          <option value="400">Slow</option>
+          <option value="150" selected>Normal</option>
+          <option value="50">Fast</option>
+        </select>
+      </label>
     </div>
+    <div class="bars-wrap" id="bars-container"></div>
+    <div id="sort-status">Press ▶ Sort to begin.</div>
+  </div>
+</section>
 
-    <h3>Merge Sort</h3>
-    <div class="card card-teal">
-      <div class="card-title">Recurrence</div>
-      T(n) = 2T(n/2) + Θ(n)<br>
-      crit(n) = n<sup>log₂2</sup> = n. Since f(n) = n = Θ(n), this is <strong>Case II</strong>.<br>
-      Result: <span class="theta">T(n) = Θ(n log n)</span>
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 3B — INSERTION SORT                         -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s3b">
+  <div class="section-head"><span class="section-num">03a</span><h2>Insertion Sort — Deep Dive</h2></div>
+
+  <p><strong>Core idea:</strong> Maintain a sorted prefix of the list. For each new element at position <em>i</em>, "insert" it into its correct position in the already-sorted prefix by swapping leftward until the invariant is restored.</p>
+
+  <h4>Pseudocode</h4>
+  <pre><span class="fn">InsertionSort</span>(A):
+  <span class="kw">for</span> i = <span class="num">1</span> to n−1:            <span class="cm">// outer loop: grows sorted prefix</span>
+    j = i
+    <span class="kw">while</span> j > <span class="num">0</span> <span class="kw">and</span> A[j] &lt; A[j−1]:
+      swap(A[j], A[j−1])           <span class="cm">// bubble element left</span>
+      j−−
+  <span class="kw">return</span> A</pre>
+
+  <h4>Loop Invariant</h4>
+  <div class="card card-blue">
+    <div class="card-title">Invariant</div>
+    At the start of each outer-loop iteration <em>i</em>, the subarray A[0..i−1] is sorted. After the last iteration (i = n−1), A[0..n−1] is sorted.
+  </div>
+
+  <h4>Step-by-Step Trace — A = [5, 3, 4, 1, 2]</h4>
+  <div class="trace">
+    <div>Initial:   [<span class="th1">5</span>, 3, 4, 1, 2]</div>
+    <div>i=1: j=1, 3&lt;5 → swap → [<span class="th2">3, 5</span>, 4, 1, 2] &nbsp; j=0, stop</div>
+    <div>i=2: j=2, 4&lt;5 → swap → [3, <span class="th2">4, 5</span>, 1, 2] &nbsp; 4&gt;3, stop → [<span class="th2">3, 4, 5</span>, 1, 2]</div>
+    <div>i=3: j=3, 1&lt;5 → swap → [3,4,<span class="th2">1,5</span>,2] → 1&lt;4 → [3,<span class="th2">1,4</span>,5,2] → 1&lt;3 → [<span class="th2">1,3,4,5</span>,2]</div>
+    <div>i=4: j=4, 2&lt;5,4,3 → [<span class="th5">1,2,3,4,5</span>] ✓</div>
+  </div>
+
+  <h3>Runtime Analysis</h3>
+  <div class="grid-3">
+    <div class="card card-green">
+      <div class="card-title">Best Case — Θ(n)</div>
+      Input already sorted. The while condition A[j]&lt;A[j−1] fails immediately every time. Outer loop runs n−1 times with O(1) work each → <span class="theta">Θ(n)</span>.
     </div>
-    <p><strong>Why are all cases the same?</strong> Merge Sort always divides the array in exactly half and always merges in Θ(n) time, regardless of the input. There is no "early exit" or pivot-lucky case — every element is always visited at every level of the recursion tree.</p>
-
-    <h3>QuickSort</h3>
-    <div class="grid-2">
-      <div class="card card-green">
-        <div class="card-title">Best Case — Θ(n log n)</div>
-        The pivot always lands in the <strong>middle</strong>, splitting the array into two equal halves. This gives T(n) = 2T(n/2) + Θ(n) — same as Merge Sort.
-      </div>
-      <div class="card card-red">
-        <div class="card-title">Worst Case — Θ(n²)</div>
-        With a <strong>middle-element pivot</strong>: an already-sorted or reverse-sorted array causes the middle element to be the min or max, creating a 0/n−1 split each time. T(n) = T(n−1) + Θ(n) → Θ(n²).
-      </div>
-    </div>
-
-    <h3>Comparison Sort Lower Bound — Ω(n log n)</h3>
-
-    <ul class="steps">
-      <li><span class="step-num">1</span><strong>There are n! permutations</strong> of n distinct elements: n choices for position 1, n−1 for position 2, …, giving n · (n−1) · … · 1 = n!.</li>
-      <li><span class="step-num">2</span><strong>Every permutation must be reachable.</strong> If a permutation were missing from the algorithm's decision tree, there would be an input ordering the algorithm cannot correctly sort.</li>
-      <li><span class="step-num">3</span><strong>Decision tree height.</strong> A binary decision tree with n! leaf nodes must have height h ≥ log₂(n!). By Stirling's Approximation: n! ≈ √(2πn)(n/e)ⁿ, so log₂(n!) ≈ n log₂(n) − n log₂(e) ≈ <strong>Θ(n log n)</strong>.</li>
-      <li><span class="step-num">4</span><strong>Height = worst case.</strong> The height of the decision tree is the longest path = maximum number of comparisons in the worst case.</li>
-    </ul>
-
     <div class="card card-amber">
-      <div class="card-title">Key Insight</div>
-      The height <em>can</em> be more than n log n (a slow sort) but <em>cannot</em> be less than n log n — otherwise there aren't enough leaves for all n! permutations.
+      <div class="card-title">Average Case — Θ(n²)</div>
+      On average, each element travels halfway back. Total swaps ≈ n(n−1)/4 ∈ <span class="theta">Θ(n²)</span>.
     </div>
+    <div class="card card-red">
+      <div class="card-title">Worst Case — Θ(n²)</div>
+      Reverse-sorted input. Element at position i must swap all the way to position 0 (i swaps). Total: 1+2+…+(n−1) = n(n−1)/2 ∈ <span class="theta">Θ(n²)</span>.
+    </div>
+  </div>
 
-    <h3>Radix Sort (LSD) and Stable Sorting</h3>
-    <p>Radix sort sorts digit-by-digit from the <strong>least significant digit</strong> (LSD) to the most significant. It runs in <span class="big-o">O(d · n)</span> where d is the number of digits.</p>
+  <h3>Inductive Proof of O(n²) Worst Case</h3>
+  <div class="theorem">
+    <div class="theorem-label">Claim</div>
+    The worst-case number of swaps made by Insertion Sort on a list of size n is at most <strong>n(n−1)/2</strong>.
+  </div>
+  <p><strong>Base case n=1:</strong> 0 swaps needed. Formula: 1·0/2 = 0. ✓</p>
+  <p><strong>Hypothesis:</strong> Assume a list of size n requires at most n(n−1)/2 swaps in the worst case.</p>
+  <p><strong>Step (n → n+1):</strong> When element at position n is inserted, j decrements from n down toward 0. It can swap at most n times (positions n,n−1,…,1 — it cannot swap to position −1 since j>0 must hold). Therefore:</p>
+  <span class="math">Total swaps ≤ n(n−1)/2 + n = [n(n−1) + 2n] / 2 = n(n+1)/2 = (n+1)((n+1)−1)/2 ✓</span>
+  <p>Since swaps ≤ n(n−1)/2 ∈ O(n²), insertion sort is O(n²) in the worst case. □</p>
 
+  <div class="pblock">
+    <div class="pq"><span>Practice (Fa21 Q1): What is the worst-case input for Insertion Sort, and how many swaps does it trigger?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      The worst case is a <strong>reverse-sorted list</strong>, e.g. [n, n−1, …, 2, 1]. Element at position i is larger than all previous elements in the sorted prefix, so it must bubble all the way to position 0, making <em>i</em> swaps. Total swaps = 1+2+…+(n−1) = n(n−1)/2.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 3C — MERGE SORT                             -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s3c">
+  <div class="section-head"><span class="section-num">03b</span><h2>Merge Sort — Deep Dive</h2></div>
+
+  <p><strong>Core idea:</strong> Divide-and-conquer. Recursively split the array in half until each piece has size 1 (trivially sorted), then <em>merge</em> sorted halves back together in linear time.</p>
+
+  <h4>Pseudocode</h4>
+  <pre><span class="fn">MergeSort</span>(A, lo, hi):
+  <span class="kw">if</span> lo >= hi: <span class="kw">return</span>                     <span class="cm">// base case: one element</span>
+  mid = (lo + hi) / 2
+  <span class="fn">MergeSort</span>(A, lo, mid)
+  <span class="fn">MergeSort</span>(A, mid+1, hi)
+  <span class="fn">Merge</span>(A, lo, mid, hi)              <span class="cm">// merge two sorted halves</span>
+
+<span class="fn">Merge</span>(A, lo, mid, hi):
+  L = A[lo..mid],  R = A[mid+1..hi]   <span class="cm">// copy to temp arrays</span>
+  i = j = <span class="num">0</span>;  k = lo
+  <span class="kw">while</span> i &lt; L.len <span class="kw">and</span> j &lt; R.len:
+    <span class="kw">if</span> L[i] &lt;= R[j]: A[k++] = L[i++]
+    <span class="kw">else</span>:            A[k++] = R[j++]
+  <span class="cm">// copy remaining elements</span>
+  <span class="kw">while</span> i &lt; L.len: A[k++] = L[i++]
+  <span class="kw">while</span> j &lt; R.len: A[k++] = R[j++]</pre>
+
+  <h4>Recurrence and Solution</h4>
+  <span class="math">T(n) = 2T(n/2) + Θ(n)</span>
+  <p>Here a=2, b=2, f(n)=n. crit = n<sup>log₂2</sup> = n<sup>1</sup>. Since f(n)=n=Θ(n<sup>1</sup>), this is <strong>Case II</strong> of the Master Theorem → <span class="theta">T(n) = Θ(n log n)</span>.</p>
+
+  <h4>Recursion Tree Intuition</h4>
+  <div class="card card-teal">
+    <div class="card-title">Why Θ(n log n)?</div>
+    The recursion tree has <strong>log₂n levels</strong> (each level halves the problem). At each level, the total work across all merge calls is exactly Θ(n) (every element is touched once per level). Multiplying: log n levels × n work per level = <span class="theta">Θ(n log n)</span>.
+  </div>
+
+  <h3>Why All Cases Are Identical</h3>
+  <div class="card card-amber">
+    <div class="card-title">No "Lucky" Path Through Merge Sort</div>
+    Unlike QuickSort, Merge Sort always <strong>splits exactly in half</strong> regardless of input values — the midpoint is computed from indices, not element values. The merge step always scans all n elements. There is no shortcut even for already-sorted input. Every run of MergeSort on n elements takes exactly Θ(n log n): best = worst = average.
+  </div>
+
+  <h4>Step-by-Step Trace — A = [5, 3, 1, 4, 2]</h4>
+  <div class="trace">
+    <div><span class="th1">Split:</span> [5,3,1,4,2] → [5,3,1] | [4,2]</div>
+    <div><span class="th1">Split:</span> [5,3,1] → [5,3] | [1]     and     [4,2] → [4] | [2]</div>
+    <div><span class="th1">Split:</span> [5,3] → [5] | [3]</div>
+    <div><span class="th2">Merge:</span> [5]+[3] → <span class="th5">[3,5]</span></div>
+    <div><span class="th2">Merge:</span> [3,5]+[1] → <span class="th5">[1,3,5]</span></div>
+    <div><span class="th2">Merge:</span> [4]+[2] → <span class="th5">[2,4]</span></div>
+    <div><span class="th2">Merge:</span> [1,3,5]+[2,4] → <span class="th5">[1,2,3,4,5]</span> ✓</div>
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: What is the space complexity of Merge Sort, and why?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      <strong>O(n)</strong> auxiliary space. The Merge step copies both halves into temporary arrays before writing back. At any given level, the total copied data is O(n). The recursive call stack adds O(log n) frames but this is dominated by the O(n) merge buffers. (Some implementations reduce this with in-place merging, but those are more complex.)
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 3D — QUICKSORT                              -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s3d">
+  <div class="section-head"><span class="section-num">03c</span><h2>QuickSort — Deep Dive</h2></div>
+
+  <p><strong>Core idea:</strong> Choose a <em>pivot</em> element. Partition the array so all elements less than the pivot come before it and all elements greater come after. Then recursively sort each side.</p>
+
+  <h4>Pseudocode (Middle-Element Pivot)</h4>
+  <pre><span class="fn">QuickSort</span>(A, lo, hi):
+  <span class="kw">if</span> lo >= hi: <span class="kw">return</span>
+  pivot_idx = <span class="fn">Partition</span>(A, lo, hi)
+  <span class="fn">QuickSort</span>(A, lo, pivot_idx − 1)
+  <span class="fn">QuickSort</span>(A, pivot_idx + 1, hi)
+
+<span class="fn">Partition</span>(A, lo, hi):
+  pivot = A[(lo+hi)/2]              <span class="cm">// middle-element pivot</span>
+  <span class="cm">// swap pivot to end, then two-pointer partition</span>
+  i = lo − 1
+  <span class="kw">for</span> j = lo to hi−1:
+    <span class="kw">if</span> A[j] &lt;= pivot:
+      i++; swap(A[i], A[j])
+  swap(A[i+1], A[hi])
+  <span class="kw">return</span> i + 1</pre>
+
+  <h3>Best Case — Θ(n log n)</h3>
+  <div class="card card-green">
+    <div class="card-title">Balanced Partition Every Time</div>
+    The pivot always splits the array into two halves of roughly equal size. The recurrence becomes T(n) = 2T(n/2) + Θ(n), identical to Merge Sort → <span class="theta">Θ(n log n)</span>. This happens when the pivot is always near the median.
+  </div>
+
+  <h3>Worst Case — Θ(n²)</h3>
+  <div class="card card-red">
+    <div class="card-title">Worst Case with Middle-Element Pivot</div>
+    Consider the already-sorted or reverse-sorted array. With a <strong>middle-element pivot</strong>, the element at the middle index is the median of a sorted array — so it's actually a good split! But consider the input <strong>[1, 3, 2, 4]</strong> or carefully constructed adversarial inputs where the middle element is always the min or max of the remaining subarray. Each partition produces a 0/(n−1) or 1/(n−2) split, giving recurrence:<br>
+    T(n) = T(n−1) + T(0) + Θ(n) = T(n−1) + Θ(n)<br>
+    Unrolling: Θ(n) + Θ(n−1) + … + Θ(1) = <span class="big-o">Θ(n²)</span>.
+  </div>
+
+  <div class="card card-amber">
+    <div class="card-title">Exam-Specific Worst Case</div>
+    The Spring 2025 exam specifically asks about middle-element pivot. A concrete worst case: any array where the <em>median</em> of each subarray happens to be at one end — e.g. an array like [1, 2, 3, …, n] when sorted in a pattern that puts extremes in the middle on each recursive call. In general, the worst case is when every partition is maximally unbalanced.
+  </div>
+
+  <h4>Step-by-Step Trace (Best Case, Balanced)</h4>
+  <div class="trace">
+    <div>A=[3,1,4,5,2], pivot=A[2]=4</div>
+    <div><span class="th1">Partition:</span> [3,1,2] | <span class="th2">4</span> | [5] → pivot at idx 3</div>
+    <div><span class="th1">Recurse left:</span> [3,1,2], pivot=A[1]=1 → [] | <span class="th2">1</span> | [3,2]</div>
+    <div><span class="th1">Recurse right of 1:</span> [3,2], pivot=A[0]=3 → [2] | <span class="th2">3</span> | []</div>
+    <div>Result: <span class="th5">[1,2,3,4,5]</span> ✓</div>
+  </div>
+
+  <h3>QuickSort vs Merge Sort</h3>
+  <div class="grid-2">
     <div class="card card-blue">
-      <div class="card-title">Why O(n) Doesn't Violate Ω(n log n)</div>
-      The comparison sort lower bound applies only to <strong>comparison-based</strong> algorithms. Radix sort is <em>not</em> comparison-based — it exploits the structure of the keys (digits), not comparisons between elements. Therefore, the theorem does not apply.
+      <div class="card-title">QuickSort Advantages</div>
+      O(log n) space (in-place partitioning). Excellent cache locality. Faster in practice for random data due to small constants.
     </div>
+    <div class="card card-purple">
+      <div class="card-title">Merge Sort Advantages</div>
+      Guaranteed Θ(n log n) worst case. Stable sort. Better for linked lists and external sorting. Predictable performance.
+    </div>
+  </div>
 
-    <h4>What is a Stable Sort?</h4>
-    <p>A <strong>stable sort</strong> preserves the relative order of elements with equal keys. If element A appears before element B in the input and they have the same key, A must appear before B in the output.</p>
-    <p><strong>Why radix sort requires stability:</strong> When sorting on digit d, the sort for digit d−1 has already arranged numbers with equal d-digit values. Using an unstable sort on digit d would disrupt that prior ordering, invalidating earlier work.</p>
+  <div class="pblock">
+    <div class="pq"><span>Practice: What is the recurrence for QuickSort's worst case, and how do you solve it?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      Worst case: one partition is size 0, the other is n−1. Recurrence: T(n) = T(n−1) + T(0) + Θ(n) = T(n−1) + Θ(n) since T(0)=O(1).<br>
+      Unrolling: T(n) = Θ(n) + Θ(n−1) + … + Θ(1) = Θ(n(n+1)/2) = <strong>Θ(n²)</strong>.
+    </div>
+  </div>
+</section>
 
-    <!-- RADIX DEMO -->
-    <div class="interactive" id="radix-demo">
-      <h4>Radix Sort (LSD) — Step-by-Step Trace</h4>
-      <p style="font-size:0.88rem; color:var(--muted);">Input: 155, 339, 434, 505, 565, 382, 222, 452</p>
-      <div class="radix-grid">
-        <div class="radix-col">
-          <div class="radix-col-head">Initial</div>
-          <div class="radix-num">155</div><div class="radix-num">339</div><div class="radix-num">434</div>
-          <div class="radix-num">505</div><div class="radix-num">565</div><div class="radix-num">382</div>
-          <div class="radix-num">222</div><div class="radix-num">452</div>
-        </div>
-        <div class="radix-col">
-          <div class="radix-col-head">After 1s digit</div>
-          <div class="radix-num">38<span class="radix-hl">2</span></div>
-          <div class="radix-num">22<span class="radix-hl">2</span></div>
-          <div class="radix-num">43<span class="radix-hl">4</span></div>
-          <div class="radix-num">45<span class="radix-hl">2</span></div>
-          <div class="radix-num">15<span class="radix-hl">5</span></div>
-          <div class="radix-num">50<span class="radix-hl">5</span></div>
-          <div class="radix-num">56<span class="radix-hl">5</span></div>
-          <div class="radix-num">33<span class="radix-hl">9</span></div>
-        </div>
-        <div class="radix-col">
-          <div class="radix-col-head">After 10s digit</div>
-          <div class="radix-num">5<span class="radix-hl">0</span>5</div>
-          <div class="radix-num">2<span class="radix-hl">2</span>2</div>
-          <div class="radix-num">4<span class="radix-hl">3</span>4</div>
-          <div class="radix-num">4<span class="radix-hl">5</span>2</div>
-          <div class="radix-num">1<span class="radix-hl">5</span>5</div>
-          <div class="radix-num">3<span class="radix-hl">5</span>9 → wait</div>
-          <div class="radix-num">3<span class="radix-hl">8</span>2</div>
-          <div class="radix-num">3<span class="radix-hl">3</span>9</div>
-        </div>
-        <div class="radix-col">
-          <div class="radix-col-head">Final (sorted)</div>
-          <div class="radix-num radix-hl">155</div>
-          <div class="radix-num radix-hl">222</div>
-          <div class="radix-num radix-hl">339</div>
-          <div class="radix-num radix-hl">382</div>
-          <div class="radix-num radix-hl">434</div>
-          <div class="radix-num radix-hl">452</div>
-          <div class="radix-num radix-hl">505</div>
-          <div class="radix-num radix-hl">565</div>
-        </div>
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 3E — COMPARISON LOWER BOUND                 -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s3e">
+  <div class="section-head"><span class="section-num">03d</span><h2>Comparison Sort Lower Bound</h2></div>
+
+  <div class="theorem">
+    <div class="theorem-label">Theorem</div>
+    Any comparison-based sorting algorithm must make at least Ω(n log n) comparisons in the worst case.
+  </div>
+
+  <p>The proof uses <strong>decision trees</strong> — a model that captures all possible comparison sequences any sorting algorithm can make.</p>
+
+  <h3>The 5-Step Argument</h3>
+
+  <ul class="steps">
+    <li><span class="snum">1</span>
+      <div><strong>n! permutations exist.</strong> For a list of n distinct elements, there are n choices for the first position, n−1 for the second, …, giving n! total orderings. Any possible initial order of the input corresponds to exactly one permutation.</div>
+    </li>
+    <li><span class="snum">2</span>
+      <div><strong>Every permutation must be producible.</strong> For any input ordering, there exists exactly one permutation that sorts it. If the algorithm's decision tree is missing a leaf for some permutation, then that input ordering cannot be correctly sorted → the algorithm is incorrect.</div>
+    </li>
+    <li><span class="snum">3</span>
+      <div><strong>A decision tree for n elements has at least n! leaves.</strong> Each leaf corresponds to one output permutation (one way to re-order the elements). We need at least one leaf per permutation, so the tree has ≥ n! leaves.</div>
+    </li>
+    <li><span class="snum">4</span>
+      <div><strong>A binary tree with ≥ n! leaves has height ≥ log₂(n!).</strong> A binary tree of height h has at most 2<sup>h</sup> leaves. So 2<sup>h</sup> ≥ n! → h ≥ log₂(n!). By <strong>Stirling's Approximation</strong> n! ≈ √(2πn)(n/e)<sup>n</sup>:
+        <span class="math">log₂(n!) ≈ ½·log₂(2πn) + n·log₂(n) − n·log₂(e) = Θ(n log n)</span>
       </div>
-      <p style="font-size:0.8rem; color:var(--muted); margin-top:0.5rem;">Highlighted digit = the one being sorted at each pass.</p>
+    </li>
+    <li><span class="snum">5</span>
+      <div><strong>Height = worst-case comparisons.</strong> The height of the decision tree is the length of the longest root-to-leaf path, which equals the maximum number of comparisons in the worst case. Since height ≥ Θ(n log n), any comparison sort takes Ω(n log n) comparisons in the worst case.</div>
+    </li>
+  </ul>
+
+  <div class="card card-amber">
+    <div class="card-title">Does the tree height have to be exactly n log n?</div>
+    No. The height must be <em>at least</em> n log n — it can be more (an inefficient sort), but it cannot be less. If it were, there wouldn't be enough leaves for all n! permutations, and some input couldn't be sorted. Merge Sort and heap sort achieve the optimal Θ(n log n). Insertion sort is suboptimal in the worst case.
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice (Fa21 Q2e): Does the decision tree height have to be n log n? Why or why not?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      It does NOT have to be exactly n log n. The lower bound proves the height <em>cannot be less</em> than Θ(n log n). It can be greater (e.g., Bubble Sort, which has a taller decision tree because it makes redundant comparisons). The bound is tight in the sense that sorting algorithms like Merge Sort achieve exactly Θ(n log n) height.
     </div>
+  </div>
+</section>
 
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: Why is MergeSort's best, worst, and average case all Θ(n log n)?</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        Merge Sort always divides the problem into <em>exactly</em> two halves of size n/2, regardless of the input data. The merge step always takes Θ(n) time because it must scan all n elements. There is no shortcut path — even a sorted array requires a full merge. Therefore T(n) = 2T(n/2) + Θ(n) always, giving Θ(n log n) in all cases.
-      </div>
-    </div>
-  </section>
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 3F — RADIX SORT                             -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s3f">
+  <div class="section-head"><span class="section-num">03e</span><h2>Radix Sort (LSD) — Deep Dive</h2></div>
 
-  <hr class="divider">
+  <p><strong>Core idea:</strong> Sort digit-by-digit starting from the <strong>least significant digit</strong> (rightmost) to the most significant digit (leftmost). Each digit-pass uses a stable counting sort.</p>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 4: DYNAMIC PROGRAMMING / LCS            -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s4">
-    <div class="section-head">
-      <span class="section-num">04</span>
-      <h2>Dynamic Programming — LCS</h2>
-    </div>
+  <h3>What is a Stable Sort?</h3>
+  <div class="card card-blue">
+    <div class="card-title">Stability Defined</div>
+    A sort is <strong>stable</strong> if elements with <em>equal keys</em> maintain their original relative order. Example: sorting [(10,A),(11,A),(10,B),(11,B)] by the number stably gives [(10,A),(10,B),(11,A),(11,B)] — A still comes before B for ties.
+  </div>
 
-    <p>The <strong>Longest Common Subsequence (LCS)</strong> of two sequences finds the longest subsequence present in both (not necessarily contiguous, but order-preserving). Example: LCS of <code>abacde</code> and <code>abcefa</code> is <code>abce</code>.</p>
+  <h3>Why Radix Sort Must Use a Stable Sub-Sort</h3>
+  <p>After sorting by the 1s digit, numbers with the same ones digit are ordered correctly relative to each other. When we sort by the 10s digit next, numbers with the same tens digit must preserve their prior ones-digit order. An <em>unstable</em> sort at this step would re-scramble elements that have equal tens digits, destroying the work done in the previous pass.</p>
 
-    <h3>Recursive Algorithm (No Memoization)</h3>
-    <pre><span class="kw">int</span> <span class="fn">lcs</span>(a_seq, b_seq, a_cur=0, b_cur=0):
-  <span class="kw">if</span> a_cur >= a_seq.length() <span class="kw">or</span> b_cur >= b_seq.length():
-    <span class="kw">return</span> <span class="num">0</span>
-  no_match_a = <span class="fn">lcs</span>(a_seq, b_seq, a_cur+<span class="num">1</span>, b_cur)
-  no_match_b = <span class="fn">lcs</span>(a_seq, b_seq, a_cur, b_cur+<span class="num">1</span>)
-  <span class="kw">if</span> a_seq[a_cur] == b_seq[b_cur]:
-    match = <span class="num">1</span> + <span class="fn">lcs</span>(a_seq, b_seq, a_cur+<span class="num">1</span>, b_cur+<span class="num">1</span>)
-  <span class="kw">else</span>:
-    match = <span class="fn">lcs</span>(a_seq, b_seq, a_cur+<span class="num">1</span>, b_cur+<span class="num">1</span>)
-  <span class="kw">return</span> max(match, no_match_a, no_match_b)</pre>
+  <div class="card card-red">
+    <div class="card-title">Example of Instability Breaking Radix Sort</div>
+    After pass 1 (1s digit): [31, 51, 22, 32, 23, 53, 34, 54]<br>
+    Stable sort by 10s: → [22, 23, 31, 32, 34, 51, 53, 54] ✓<br>
+    Unstable sort by 10s (scrambles 3X): → [23, 22, 32, 34, 31, 53, 54, 51] ✗ (31, 51 out of order)
+  </div>
 
-    <div class="grid-2">
-      <div class="card card-red">
-        <div class="card-title">Runtime Without Memoization</div>
-        Each call makes <strong>3 recursive calls</strong>. The depth is at most m + n (where m = |a_seq|, n = |b_seq|). This gives <span class="big-o">O(3<sup>m+n</sup>)</span> — exponential time.
-      </div>
-      <div class="card card-green">
-        <div class="card-title">Runtime With Memoization</div>
-        Each unique (a_cur, b_cur) pair is computed once. There are m × n such pairs, each taking O(1). So the total is <span class="theta">Θ(mn)</span>.
-      </div>
-    </div>
-
-    <h3>Why Memoize on (a_cur, b_cur)?</h3>
-    <p><code>a_seq</code> and <code>b_seq</code> are the same across all calls — they never change. Only the <strong>indices</strong> <code>a_cur</code> and <code>b_cur</code> change. Two calls with the same (a_cur, b_cur) will always return the same result, so we cache on these indices.</p>
-
-    <div class="card card-teal">
-      <div class="card-title">Memoization Table</div>
-      <strong>Size of table:</strong> a_cur ∈ {0, 1, …, m} and b_cur ∈ {0, 1, …, n}, so the table has <strong>(m+1) × (n+1)</strong> entries. Each is filled in O(1), giving total runtime <span class="theta">Θ(mn)</span>.
-    </div>
-
-    <h4>What values can a_cur and b_cur hold?</h4>
-    <p>a_cur ∈ {0, 1, 2, …, |a_seq|} and b_cur ∈ {0, 1, 2, …, |b_seq|}. They can equal the length of the sequence (the base case check handles this — when they equal the length, we return 0).</p>
-
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: For LCS of two strings of length 5 and 7, what is the size of the memoization table?</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        a_cur ∈ {0,…,5} = 6 values. b_cur ∈ {0,…,7} = 8 values.<br>
-        Table size = <strong>6 × 8 = 48 entries</strong>.<br>
-        Runtime = <span class="theta">Θ(5 × 7) = Θ(35) = Θ(mn)</span>.
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 5: GRAPH ALGORITHMS                     -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s5">
-    <div class="section-head">
-      <span class="section-num">05</span>
-      <h2>Graph Algorithms</h2>
-    </div>
-
-    <h3>Adjacency Matrix Representations</h3>
-    <div class="grid-2">
-      <div class="card card-blue">
-        <div class="card-title">Unweighted Graph</div>
-        Entry M[i][j] = 1 if edge (i,j) exists, 0 otherwise. Diagonal is always 0. For undirected graphs, the matrix is <strong>symmetric</strong>: M[i][j] = M[j][i].
-      </div>
-      <div class="card card-amber">
-        <div class="card-title">Weighted Graph</div>
-        Entry M[i][j] = weight of edge (i,j). Use <strong>∞</strong> (not 0) for no edge, since 0 would mean "free" edge. M[i][i] = ∞ (no self-loops, or 0 by convention).
-      </div>
-    </div>
-
-    <h3>Breadth-First Search (BFS)</h3>
-    <p>BFS explores all nodes at distance d before nodes at distance d+1. Uses a <strong>queue (FIFO)</strong>.</p>
-
-    <pre><span class="fn">BFS</span>(G, start):
-  visited = {start}
-  queue = [start]
-  <span class="kw">while</span> queue is not empty:
-    node = queue.dequeue()
-    <span class="fn">process</span>(node)
-    <span class="kw">for</span> neighbor <span class="kw">in</span> G.adjacency[node] (sorted alphabetically):
-      <span class="kw">if</span> neighbor <span class="kw">not in</span> visited:
-        visited.add(neighbor)
-        queue.enqueue(neighbor)</pre>
-
-    <div class="card card-blue">
-      <div class="card-title">Complexity</div>
-      Time: <span class="big-o">O(V + E)</span> — each vertex dequeued once, each edge examined once.<br>
-      Space: <span class="big-o">O(V)</span> for visited set and queue.
-    </div>
-
-    <h3>Depth-First Search (DFS)</h3>
-    <p>DFS explores as deep as possible before backtracking. Uses a <strong>stack (LIFO)</strong>, or recursion.</p>
-
-    <pre><span class="fn">DFS</span>(G, start):
-  visited = {}
-  stack = [start]
-  <span class="kw">while</span> stack is not empty:
-    node = stack.pop()
-    <span class="kw">if</span> node <span class="kw">not in</span> visited:
-      visited.add(node)
-      <span class="fn">process</span>(node)
-      <span class="kw">for</span> neighbor <span class="kw">in</span> G.adjacency[node] (reverse alphabetical):
-        <span class="kw">if</span> neighbor <span class="kw">not in</span> visited:
-          stack.push(neighbor)</pre>
-
-    <div class="card card-teal">
-      <div class="card-title">Exam Tip</div>
-      BFS uses adjacency lists <strong>sorted alphabetically</strong>. DFS uses adjacency lists <strong>sorted in reverse alphabetical order</strong> (because the last-pushed neighbor is first-popped). Always check what order the exam specifies!
-    </div>
-
-    <h3>Modified BFS for k-Friends Problem</h3>
-    <p>To find common degree-k friends of vertices v1 and v2:</p>
-    <ul class="steps">
-      <li><span class="step-num">1</span>Run BFS from v1, recording the <strong>distance from v1</strong> to every node. Call this dist1[].</li>
-      <li><span class="step-num">2</span>Run BFS from v2, recording the <strong>distance from v2</strong> to every node. Call this dist2[].</li>
-      <li><span class="step-num">3</span>Scan all nodes. Report node n if <code>dist1[n] ≤ k AND dist2[n] ≤ k</code>.</li>
-    </ul>
-    <p>Total time: O(V + E) for BFS twice + Θ(V) for scan = <span class="big-o">O(V + E)</span>.</p>
-
-    <h3>Dijkstra's Algorithm</h3>
-    <p>Finds <strong>shortest paths from a single source</strong> in graphs with non-negative weights.</p>
-
-    <pre><span class="fn">Dijkstra</span>(G, source):
-  dist[source] = <span class="num">0</span>; dist[v] = ∞ for all other v
-  pred[v] = null for all v
-  priority_queue Q = all vertices with dist as priority
-  <span class="kw">while</span> Q is not empty:
-    u = Q.extract_min()
-    <span class="kw">for</span> each neighbor v of u:
-      alt = dist[u] + weight(u, v)
-      <span class="kw">if</span> alt < dist[v]:
-        dist[v] = alt
-        pred[v] = u
-        Q.decrease_key(v, alt)</pre>
-
-    <div class="card card-amber">
-      <div class="card-title">Complexity</div>
-      With a binary heap: <span class="big-o">O((V + E) log V)</span>.<br>
-      With Fibonacci heap: <span class="big-o">O(E + V log V)</span>.<br>
-      <strong>Limitation:</strong> Does NOT work with negative-weight edges.
-    </div>
-
-    <!-- DIJKSTRA TRACE TABLE -->
-    <div class="interactive" id="dijkstra-trace">
-      <h4>Dijkstra's Trace — Fa21 Exam Graph (A → J)</h4>
-      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:0.8rem;">Starting from A. Edges: A-C=4, A-D=5(→wait: A-H=5), C-B=3, C-E=4→B-E=1, D-E=18, E-F=1 (edges as in exam). Below is the completed table:</p>
-      <table style="font-size:0.82rem;">
-        <thead><tr><th>Node</th><th>Cost</th><th>Predecessor</th></tr></thead>
+  <!-- RADIX DEMO -->
+  <div class="interactive" id="radix-demo">
+    <h4>Step-by-Step LSD Radix Sort — Exam Input</h4>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:.8rem;">Input: 155, 339, 434, 505, 565, 382, 222, 452. Each column shows the list after sorting by that digit position. The active digit is highlighted.</p>
+    <div class="radix-wrap">
+      <table class="radix-table">
+        <thead>
+          <tr>
+            <th>Initial</th>
+            <th>After 1s digit</th>
+            <th>After 10s digit</th>
+            <th>After 100s digit (Final)</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>A</td><td style="color:var(--teal);">0</td><td>∅</td></tr>
-          <tr><td>B</td><td style="color:var(--teal);">7 (=3+4)</td><td>C</td></tr>
-          <tr><td>C</td><td style="color:var(--teal);">4</td><td>A</td></tr>
-          <tr><td>D</td><td style="color:var(--teal);">8</td><td>A</td></tr>
-          <tr><td>E</td><td style="color:var(--teal);">8 (=7+1)</td><td>B</td></tr>
-          <tr><td>F</td><td style="color:var(--teal);">9 (=8+1)</td><td>E</td></tr>
-          <tr><td>G</td><td style="color:var(--teal);">11</td><td>D→F</td></tr>
-          <tr><td>H</td><td style="color:var(--teal);">5</td><td>A</td></tr>
-          <tr><td>J</td><td style="color:var(--teal);">8 (=5+3)</td><td>H</td></tr>
-          <tr><td>K</td><td style="color:var(--teal);">12</td><td>F</td></tr>
-          <tr><td>L</td><td style="color:var(--teal);">11 (=7+4)</td><td>B</td></tr>
+          <tr><td>15<span class="hl-digit">5</span></td><td>38<span class="hl-digit">2</span></td><td>5<span class="hl-digit">0</span>5</td><td class="sorted-row"><span class="hl-digit">1</span>55</td></tr>
+          <tr><td>33<span class="hl-digit">9</span></td><td>22<span class="hl-digit">2</span></td><td>2<span class="hl-digit">2</span>2</td><td class="sorted-row"><span class="hl-digit">2</span>22</td></tr>
+          <tr><td>43<span class="hl-digit">4</span></td><td>45<span class="hl-digit">2</span></td><td>4<span class="hl-digit">3</span>4</td><td class="sorted-row"><span class="hl-digit">3</span>39</td></tr>
+          <tr><td>50<span class="hl-digit">5</span></td><td>43<span class="hl-digit">4</span></td><td>3<span class="hl-digit">3</span>9</td><td class="sorted-row"><span class="hl-digit">3</span>82</td></tr>
+          <tr><td>56<span class="hl-digit">5</span></td><td>15<span class="hl-digit">5</span></td><td>4<span class="hl-digit">5</span>2</td><td class="sorted-row"><span class="hl-digit">4</span>34</td></tr>
+          <tr><td>38<span class="hl-digit">2</span></td><td>50<span class="hl-digit">5</span></td><td>1<span class="hl-digit">5</span>5</td><td class="sorted-row"><span class="hl-digit">4</span>52</td></tr>
+          <tr><td>22<span class="hl-digit">2</span></td><td>56<span class="hl-digit">5</span></td><td>5<span class="hl-digit">6</span>5</td><td class="sorted-row"><span class="hl-digit">5</span>05</td></tr>
+          <tr><td>45<span class="hl-digit">2</span></td><td>33<span class="hl-digit">9</span></td><td>3<span class="hl-digit">8</span>2</td><td class="sorted-row"><span class="hl-digit">5</span>65</td></tr>
         </tbody>
       </table>
-      <p style="font-size:0.8rem; color:var(--muted); margin-top:0.4rem;">Process order: A → C → H → B → J → D → E → F → G/L → K</p>
     </div>
+    <p style="font-size:.8rem;color:var(--muted);">Highlighted digit = current sorting key. Final column is fully sorted ✓</p>
+  </div>
 
-    <h3>Bellman-Ford &amp; Negative Cycles</h3>
-    <p>Bellman-Ford relaxes <em>all edges</em> |V|−1 times. Unlike Dijkstra, it handles <strong>negative-weight edges</strong>. However, it cannot handle <strong>negative-weight cycles</strong>.</p>
-
-    <div class="card card-red">
-      <div class="card-title">Negative Cycle Problem (Sp25 Q10)</div>
-      In a graph with a negative cycle (e.g., a→b→c→a with total weight −20 + 5 + 8 − 4 = negative), each traversal of the cycle reduces the path cost. Bellman-Ford will keep relaxing edges forever, producing ever-smaller (−∞) values. Detection: if any edge can still be relaxed after |V|−1 iterations, a negative cycle exists.
+  <h3>Complexity Analysis</h3>
+  <div class="grid-2">
+    <div class="card card-green">
+      <div class="card-title">Time — O(d·n)</div>
+      d digit passes × O(n) counting sort per pass. For fixed-width integers (d=constant) this is <span class="theta">Θ(n)</span>.
     </div>
-
-    <div class="trace-box">
-      <div class="trace-step">Edge sequence: <span class="hl">a→b</span>, <span class="hl">c→d</span>, <span class="hl">c→a</span>, <span class="hl">d→c</span>, <span class="hl">b→c</span></div>
-      <div class="trace-step">Iter 1: dist[b]=5, dist[c]=−20+5=−15, dist[a]=−15+5=−10, dist[c] updated again...</div>
-      <div class="trace-step">Iter 2: dist values continue to <span class="hl2">decrease indefinitely</span></div>
-      <div class="trace-step">→ The cycle b→c→d→c has negative total weight: <span class="hl3">this causes the problem</span></div>
-    </div>
-
-    <h3>Kruskal's Algorithm — Minimum Spanning Tree</h3>
-    <p>Finds the MST by greedily adding the <strong>lowest-weight edge that doesn't create a cycle</strong>.</p>
-    <ul class="steps">
-      <li><span class="step-num">1</span>Sort all edges by weight (ascending).</li>
-      <li><span class="step-num">2</span>Initialize a disjoint-set (union-find) structure with one set per vertex.</li>
-      <li><span class="step-num">3</span>For each edge (u, v) in sorted order: if u and v are in <em>different sets</em>, add the edge to the MST and union the two sets.</li>
-      <li><span class="step-num">4</span>Stop when MST has V−1 edges.</li>
-    </ul>
-    <div class="card card-teal">
-      <div class="card-title">Complexity</div>
-      O(E log E) for sorting + O(E α(V)) for union-find operations ≈ <span class="big-o">O(E log E)</span>.
-    </div>
-
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: Why does Dijkstra fail on negative-weight edges?</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        Dijkstra assumes that once a node is extracted from the priority queue (with minimum known distance), its distance is final. With negative edges, a later path through a negative edge could produce a shorter distance to an already-finalized node — violating the algorithm's greedy assumption. This can lead to incorrect shortest paths.
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 6: NP-COMPLETENESS                      -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s6">
-    <div class="section-head">
-      <span class="section-num">06</span>
-      <h2>NP-Completeness &amp; Problem Complexity</h2>
-    </div>
-
-    <div class="grid-2">
-      <div class="card card-purple">
-        <div class="card-title">P</div>
-        Problems solvable in <strong>polynomial time</strong>. Examples: sorting, shortest path, MST.
-      </div>
-      <div class="card card-amber">
-        <div class="card-title">NP</div>
-        Problems whose <strong>solutions can be verified</strong> in polynomial time. P ⊆ NP. Whether P = NP is unknown.
-      </div>
-    </div>
-    <div class="card card-red" style="margin-top:0;">
-      <div class="card-title">NP-Complete</div>
-      A problem is NP-Complete if it is in NP <em>and</em> every problem in NP can be reduced to it in polynomial time. If any NP-Complete problem is in P, then P = NP.
-    </div>
-
-    <h3>SAT (Satisfiability)</h3>
-    <p>Given a boolean formula φ(x₁, x₂, …, xₙ) using ∧, ∨, ¬, does there exist an assignment of True/False values that makes φ evaluate to True?</p>
-
-    <div class="card card-teal">
-      <div class="card-title">SAT ∈ NP — Verification Algorithm</div>
-      <strong>Certificate:</strong> A truth assignment (T/F for each variable).<br>
-      <strong>Verifier:</strong> Substitute values into φ and evaluate — takes O(n²) in the worst case (linear scan per clause). This is polynomial, so SAT ∈ NP.
-    </div>
-
-    <div class="card card-amber">
-      <div class="card-title">SAT ∈ NP-Complete, but SAT ∉ P... maybe</div>
-      Even though we can <em>verify</em> SAT in polynomial time, we cannot (as far as we know) <em>find</em> a satisfying assignment in polynomial time in general. SAT is NP-Complete means it's among the hardest in NP. But NP-Complete ≠ not in P — <em>if</em> SAT were in P, then P = NP, which hasn't been proven or disproven.
-    </div>
-
-    <h3>TSP(k) — Traveling Salesman Problem Restriction</h3>
-    <p>TSP asks for the minimum cost Hamiltonian cycle (visits every <strong>vertex</strong> exactly once and returns). TSP(k) restricts this: is there such a path with cost <em>exactly</em> k?</p>
-
-    <div class="card card-teal">
-      <div class="card-title">TSP(k) ∈ NP — Verification</div>
-      <strong>What a solution looks like:</strong> An ordered list of all vertices (a permutation), plus the total cost.<br><br>
-      <strong>Pseudo-code verifier:</strong>
-      <pre style="margin:0.5rem 0 0;"><span class="fn">verify_TSP_k</span>(G, proposed_path, k):
-  <span class="kw">if</span> proposed_path.size() != |V|: <span class="kw">return</span> False
-  <span class="kw">if</span> any vertex appears more than once: <span class="kw">return</span> False
-  total = <span class="num">0</span>
-  <span class="kw">for</span> i <span class="kw">in</span> 0 to |V|−1:
-    u = proposed_path[i]
-    v = proposed_path[(i+1) % |V|]
-    <span class="kw">if</span> (u,v) <span class="kw">not in</span> E: <span class="kw">return</span> False
-    total += weight(u, v)
-  <span class="kw">return</span> total == k</pre>
-      This runs in O(V) — polynomial. So TSP(k) ∈ NP. □
-    </div>
-
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: Explain the difference between NP and NP-Complete.</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        <strong>NP:</strong> Problems where a proposed solution can be <em>verified</em> in polynomial time. This is a broad class — P is a subset of NP.<br><br>
-        <strong>NP-Complete:</strong> Problems that are (1) in NP, AND (2) are at least as hard as every other problem in NP (via polynomial reductions). They are the "hardest" problems in NP. If you could solve any NP-Complete problem in polynomial time, you could solve ALL NP problems in polynomial time (P = NP).
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- SECTION 7: ALGORITHM DESIGN                     -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <section class="section" id="s7">
-    <div class="section-head">
-      <span class="section-num">07</span>
-      <h2>Algorithm Design</h2>
-    </div>
-
-    <h3>Minimum Range Subarray of Size k</h3>
-    <p><strong>Problem:</strong> Given a list A = [a₁, …, aₙ], find a subarray B of exactly k elements from A such that max(B) − min(B) is minimized.</p>
-
     <div class="card card-blue">
-      <div class="card-title">Key Insight</div>
-      If we sort A first, consecutive elements are closest together. The optimal k elements will always be <strong>consecutive in the sorted array</strong> — any non-consecutive selection can be improved by swapping the outlier for the element that is closer in value.
+      <div class="card-title">Space — O(n+k)</div>
+      O(k) for the counting array (k = base, e.g. 10 for decimal) + O(n) output buffer. k is a constant so O(n) overall.
     </div>
+  </div>
 
-    <h4>Example</h4>
-    <p>A = [1, 2, 7, 12, 15, 16], k = 3<br>
-    Sorted: [1, 2, 7, 12, 15, 16]<br>
-    Windows: {1,2,7}→6, {2,7,12}→10, {7,12,15}→8, {12,15,16}→4 → <strong>Best: {12,15,16}, range=4</strong></p>
+  <div class="card card-amber">
+    <div class="card-title">Why O(n) Radix Sort Doesn't Violate the Ω(n log n) Lower Bound</div>
+    The comparison sort lower bound applies <em>only</em> to algorithms that sort by <strong>pairwise comparisons</strong> of elements (x&lt;y?). Radix sort never compares two elements against each other — it inspects individual digits and uses counting sort. It exploits the <em>structure</em> of the keys. The decision-tree argument doesn't apply to non-comparison sorts, so there is no contradiction.
+  </div>
 
-    <h4>Pseudocode</h4>
-    <pre><span class="fn">min_range_subarray</span>(A, k):
-  <span class="cm">// Step 1: Sort A</span>
-  sorted_A = <span class="fn">sort</span>(A)   <span class="cm">// O(n log n)</span>
-
-  <span class="cm">// Step 2: Slide a window of size k</span>
-  best_range = ∞
-  best_start = <span class="num">0</span>
-  <span class="kw">for</span> i = <span class="num">0</span> to n−k:
-    current_range = sorted_A[i+k−1] − sorted_A[i]
-    <span class="kw">if</span> current_range < best_range:
-      best_range = current_range
-      best_start = i
-
-  <span class="cm">// Step 3: Return the best window</span>
-  <span class="kw">return</span> sorted_A[best_start .. best_start+k−1]</pre>
-
-    <div class="grid-2">
-      <div class="card card-green">
-        <div class="card-title">Time Complexity</div>
-        Sort: O(n log n)<br>
-        Window scan: O(n − k) = O(n)<br>
-        <strong>Total: O(n log n)</strong>
-      </div>
-      <div class="card card-blue">
-        <div class="card-title">Space Complexity</div>
-        O(n) for the sorted copy, O(1) extra for the sliding window scan.
-      </div>
+  <div class="pblock">
+    <div class="pq"><span>Practice: Why does LSD Radix Sort process digits from right to left rather than left to right?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      If we processed most-significant digit first (MSD), we'd correctly group by the leading digit but would need to independently sort each group recursively — this requires extra bookkeeping and partitioning logic. LSD processes least-significant first: each pass establishes a partial order that is preserved (via stability) by subsequent passes. By the time we sort the most-significant digit last, all lower-priority orderings are already correctly embedded in the sequence.
     </div>
+  </div>
+</section>
+<hr class="divider">
 
-    <div class="practice-block">
-      <div class="practice-q">
-        <span>Practice: Trace the algorithm on A = [3, 1, 9, 2, 8, 5] with k = 2.</span>
-        <button class="toggle-btn" onclick="toggle(this)">Show Answer</button>
-      </div>
-      <div class="practice-a">
-        <div class="practice-label">Solution</div>
-        Sorted: [1, 2, 3, 5, 8, 9]<br>
-        Windows of size 2: {1,2}→1, {2,3}→1, {3,5}→2, {5,8}→3, {8,9}→1<br>
-        Multiple windows tie at range=1. Return any one: e.g. <strong>B = {1, 2}</strong> or {2, 3} or {8, 9}. All have max − min = 1.
-      </div>
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — DYNAMIC PROGRAMMING / LCS               -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-head"><span class="section-num">04</span><h2>Dynamic Programming — LCS</h2></div>
+
+  <p>The <strong>Longest Common Subsequence (LCS)</strong> finds the longest sequence of characters present in both strings (in order, but not necessarily contiguous). Example: LCS("abacde", "abcefa") = "abce".</p>
+
+  <h3>Recursive Algorithm (No Memoization)</h3>
+  <pre><span class="fn">lcs</span>(A, B, i=0, j=0):
+  <span class="kw">if</span> i >= A.len <span class="kw">or</span> j >= B.len: <span class="kw">return</span> <span class="num">0</span>   <span class="cm">// base case</span>
+  no_A = <span class="fn">lcs</span>(A, B, i+<span class="num">1</span>, j)            <span class="cm">// skip A[i]</span>
+  no_B = <span class="fn">lcs</span>(A, B, i, j+<span class="num">1</span>)            <span class="cm">// skip B[j]</span>
+  <span class="kw">if</span> A[i] == B[j]:
+    match = <span class="num">1</span> + <span class="fn">lcs</span>(A, B, i+<span class="num">1</span>, j+<span class="num">1</span>)   <span class="cm">// match both</span>
+  <span class="kw">else</span>:
+    match = <span class="fn">lcs</span>(A, B, i+<span class="num">1</span>, j+<span class="num">1</span>)       <span class="cm">// advance both (no match)</span>
+  <span class="kw">return</span> max(match, no_A, no_B)</pre>
+
+  <h4>Runtime Without Memoization — O(3<sup>m+n</sup>)</h4>
+  <p>Each call spawns <strong>3 recursive calls</strong>. The maximum depth is m+n (both pointers reach the end). At depth d there are up to 3<sup>d</sup> calls. Total calls ≤ 3<sup>m+n</sup>, giving <span class="big-o">O(3<sup>m+n</sup>)</span> — exponential.</p>
+
+  <h3>Why Memoization Works</h3>
+  <div class="card card-blue">
+    <div class="card-title">Overlapping Subproblems</div>
+    The strings A and B never change between calls — only the indices (i, j) change. Two calls with the same (i, j) will <em>always</em> return the same value. There are only (m+1)×(n+1) distinct (i,j) pairs. Without memoization, exponentially many redundant calls are made to the same states.
+  </div>
+
+  <h4>What values can i and j hold?</h4>
+  <p>i ∈ {0, 1, 2, …, |A|} and j ∈ {0, 1, 2, …, |B|}. They can equal the string length (this triggers the base case returning 0). So i has |A|+1 possible values and j has |B|+1 possible values.</p>
+
+  <h3>Memoized Version</h3>
+  <pre><span class="cm">// Initialize memo table to −1 (uncomputed)</span>
+memo = [−<span class="num">1</span>] × (m+<span class="num">1</span>) × (n+<span class="num">1</span>)
+
+<span class="fn">lcs_memo</span>(A, B, i, j):
+  <span class="kw">if</span> i >= A.len <span class="kw">or</span> j >= B.len: <span class="kw">return</span> <span class="num">0</span>
+  <span class="kw">if</span> memo[i][j] != −<span class="num">1</span>: <span class="kw">return</span> memo[i][j]   <span class="cm">// cached!</span>
+  no_A = <span class="fn">lcs_memo</span>(A, B, i+<span class="num">1</span>, j)
+  no_B = <span class="fn">lcs_memo</span>(A, B, i, j+<span class="num">1</span>)
+  <span class="kw">if</span> A[i] == B[j]: match = <span class="num">1</span> + <span class="fn">lcs_memo</span>(A, B, i+<span class="num">1</span>, j+<span class="num">1</span>)
+  <span class="kw">else</span>: match = <span class="fn">lcs_memo</span>(A, B, i+<span class="num">1</span>, j+<span class="num">1</span>)
+  memo[i][j] = max(match, no_A, no_B)
+  <span class="kw">return</span> memo[i][j]</pre>
+
+  <div class="grid-2">
+    <div class="card card-teal">
+      <div class="card-title">Table Size</div>
+      (m+1) × (n+1) entries, one per (i,j) pair.
     </div>
+    <div class="card card-green">
+      <div class="card-title">Runtime with Memoization</div>
+      Each cell filled once in O(1) → <span class="theta">Θ(mn)</span> total.
+    </div>
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: For LCS of strings of length 6 and 8, what is the table size and runtime?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      i ∈ {0,…,6} = 7 values. j ∈ {0,…,8} = 9 values.<br>
+      <strong>Table size:</strong> 7 × 9 = 63 entries.<br>
+      <strong>Runtime:</strong> Θ(6×8) = Θ(48) = <span class="theta">Θ(mn)</span>.
+    </div>
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: Why don't we memoize on A and B (the strings themselves)?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      A and B are constant across all recursive calls — they are never modified. Memoization caches results keyed on the <em>inputs that vary</em>. Since only (i, j) vary between calls, we only need to memoize on (i, j). Including A and B in the key would be redundant (they're always the same) and would prevent cache hits.
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — GRAPH ALGORITHMS                        -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-head"><span class="section-num">05</span><h2>Graph Algorithms</h2></div>
+
+  <!-- 5B ADJACENCY MATRICES -->
+  <section id="s5b">
+  <h3>Adjacency Matrix Representations</h3>
+
+  <div class="grid-2">
+    <div class="card card-blue">
+      <div class="card-title">Unweighted Graph</div>
+      M[i][j] = 1 if edge (i,j) exists, 0 otherwise. Diagonal = 0. Undirected → M is symmetric.
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">Weighted Graph</div>
+      M[i][j] = weight of edge (i,j). Use <strong>∞</strong> for no edge (not 0, since 0 means "free"). Diagonal = ∞ or 0 by convention.
+    </div>
+  </div>
+
+  <h4>Worked Example — Unweighted Graph (Fa21 Q6)</h4>
+  <p>Graph with vertices A–F. Edges: A–B, A–C, A–D, A–E, A–F, B–E, B–F, C–D, D–E, E–F (undirected).</p>
+  <div class="adj-wrap">
+    <table class="adj-matrix">
+      <caption>Unweighted Adjacency Matrix (0=no edge, 1=edge)</caption>
+      <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr>
+      <tr><th>A</th><td>0</td><td class="edge">1</td><td class="edge">1</td><td class="edge">1</td><td class="edge">1</td><td class="edge">1</td></tr>
+      <tr><th>B</th><td class="edge">1</td><td>0</td><td>0</td><td>0</td><td class="edge">1</td><td class="edge">1</td></tr>
+      <tr><th>C</th><td class="edge">1</td><td>0</td><td>0</td><td class="edge">1</td><td>0</td><td>0</td></tr>
+      <tr><th>D</th><td class="edge">1</td><td>0</td><td class="edge">1</td><td>0</td><td class="edge">1</td><td>0</td></tr>
+      <tr><th>E</th><td class="edge">1</td><td class="edge">1</td><td>0</td><td class="edge">1</td><td>0</td><td>0</td></tr>
+      <tr><th>F</th><td class="edge">1</td><td class="edge">1</td><td class="edge">1</td><td class="edge">1</td><td>0</td><td>0</td></tr>
+    </table>
+  </div>
+
+  <h4>Worked Example — Weighted Graph (Fa21 Q7)</h4>
+  <p>Vertices P,Q,R,S,T,V with weighted edges.</p>
+  <div class="adj-wrap">
+    <table class="adj-matrix">
+      <caption>Weighted Adjacency Matrix (∞ = no edge)</caption>
+      <tr><th></th><th>P</th><th>Q</th><th>R</th><th>S</th><th>T</th><th>V</th></tr>
+      <tr><th>P</th><td class="inf">∞</td><td class="inf">∞</td><td class="edge">9</td><td class="edge">5</td><td class="inf">∞</td><td class="inf">∞</td></tr>
+      <tr><th>Q</th><td class="inf">∞</td><td class="inf">∞</td><td class="edge">8</td><td class="inf">∞</td><td class="edge">2</td><td class="edge">−4</td></tr>
+      <tr><th>R</th><td class="edge">9</td><td class="edge">8</td><td class="inf">∞</td><td class="inf">∞</td><td class="inf">∞</td><td class="edge">7</td></tr>
+      <tr><th>S</th><td class="edge">5</td><td class="inf">∞</td><td class="inf">∞</td><td class="inf">∞</td><td class="edge">4</td><td class="edge">1</td></tr>
+      <tr><th>T</th><td class="inf">∞</td><td class="edge">2</td><td class="inf">∞</td><td class="edge">4</td><td class="inf">∞</td><td class="edge">3</td></tr>
+      <tr><th>V</th><td class="inf">∞</td><td class="edge">−4</td><td class="edge">7</td><td class="edge">1</td><td class="edge">3</td><td class="inf">∞</td></tr>
+    </table>
+  </div>
   </section>
 
-  <hr class="divider">
+  <!-- 5C BFS / DFS -->
+  <section id="s5c">
+  <h3>Breadth-First Search (BFS)</h3>
+  <p>Explores all neighbors at distance d before moving to distance d+1. Uses a <strong>FIFO queue</strong>. Tracks visited set to avoid cycles.</p>
 
-  <!-- QUICK REFERENCE CARD -->
-  <section class="section">
-    <div class="section-head">
-      <span class="section-num">∑</span>
-      <h2>Quick Reference</h2>
-    </div>
-    <table>
-      <thead><tr><th>Algorithm / Concept</th><th>Key Formula / Rule</th><th>Complexity</th></tr></thead>
+  <pre><span class="fn">BFS</span>(G, start):
+  visited = {start};  queue = [start]
+  order = []
+  <span class="kw">while</span> queue not empty:
+    node = queue.<span class="fn">dequeue</span>()
+    order.<span class="fn">append</span>(node)
+    <span class="kw">for</span> neighbor <span class="kw">in sorted</span>(G.adj[node]):     <span class="cm">// alphabetical</span>
+      <span class="kw">if</span> neighbor <span class="kw">not in</span> visited:
+        visited.<span class="fn">add</span>(neighbor)
+        queue.<span class="fn">enqueue</span>(neighbor)
+  <span class="kw">return</span> order</pre>
+
+  <h4>Traced BFS Example — Graph: a–{b,c,d}, b–{e,f}, c–{g}, d–{h,i}, starting at a (alphabetical adj lists)</h4>
+  <div class="trace">
+    <div><span class="th3">Queue:</span> [<span class="th1">a</span>] &nbsp;&nbsp; Dequeue <span class="th1">a</span> → enqueue b,c,d</div>
+    <div><span class="th3">Queue:</span> [<span class="th1">b</span>,c,d] &nbsp; Dequeue <span class="th1">b</span> → enqueue e,f</div>
+    <div><span class="th3">Queue:</span> [<span class="th1">c</span>,d,e,f] &nbsp; Dequeue <span class="th1">c</span> → enqueue g</div>
+    <div><span class="th3">Queue:</span> [<span class="th1">d</span>,e,f,g] &nbsp; Dequeue <span class="th1">d</span> → enqueue h,i</div>
+    <div><span class="th3">Queue:</span> [<span class="th1">e</span>,f,g,h,i] &nbsp; Dequeue <span class="th1">e</span> → no unvisited neighbors</div>
+    <div><span class="th3">Queue:</span> [<span class="th1">f</span>,g,h,i] &nbsp; Dequeue <span class="th1">f</span>, then <span class="th1">g</span>, then <span class="th1">h</span>, then <span class="th1">i</span></div>
+    <div><span class="th5">Dequeue order:</span> a, b, c, d, e, f, g, h, i</div>
+  </div>
+  <div class="card card-blue">
+    <div class="card-title">BFS Properties</div>
+    Time: <span class="big-o">O(V+E)</span>. Space: <span class="big-o">O(V)</span>. Finds <strong>shortest paths</strong> (in terms of number of edges) from the source. Level k nodes are all at distance k from source.
+  </div>
+
+  <h3>Depth-First Search (DFS)</h3>
+  <p>Explores as deep as possible before backtracking. Uses a <strong>LIFO stack</strong>. Note: with explicit stack, neighbors are pushed in reverse order so the alphabetically-first is popped first.</p>
+
+  <pre><span class="fn">DFS</span>(G, start):
+  visited = {};  stack = [start]
+  order = []
+  <span class="kw">while</span> stack not empty:
+    node = stack.<span class="fn">pop</span>()
+    <span class="kw">if</span> node <span class="kw">in</span> visited: <span class="kw">continue</span>
+    visited.<span class="fn">add</span>(node);  order.<span class="fn">append</span>(node)
+    <span class="kw">for</span> neighbor <span class="kw">in</span> <span class="fn">reverse_sorted</span>(G.adj[node]):  <span class="cm">// reverse alpha</span>
+      <span class="kw">if</span> neighbor <span class="kw">not in</span> visited:
+        stack.<span class="fn">push</span>(neighbor)
+  <span class="kw">return</span> order</pre>
+
+  <h4>Traced DFS Example — Same graph, starting at a (reverse alphabetical adj lists)</h4>
+  <div class="trace">
+    <div><span class="th4">Stack:</span> [<span class="th1">a</span>] &nbsp; Pop <span class="th1">a</span> → push d,c,b (rev-alpha order so b popped first)</div>
+    <div><span class="th4">Stack:</span> [d,c,<span class="th1">b</span>] &nbsp; Pop <span class="th1">b</span> → push f,e</div>
+    <div><span class="th4">Stack:</span> [d,c,f,<span class="th1">e</span>] &nbsp; Pop <span class="th1">e</span> → no unvisited neighbors</div>
+    <div><span class="th4">Stack:</span> [d,c,<span class="th1">f</span>] &nbsp; Pop <span class="th1">f</span> → no unvisited neighbors</div>
+    <div><span class="th4">Stack:</span> [d,<span class="th1">c</span>] &nbsp; Pop <span class="th1">c</span> → push g</div>
+    <div><span class="th4">Stack:</span> [d,<span class="th1">g</span>] &nbsp; Pop <span class="th1">g</span> → no unvisited neighbors</div>
+    <div><span class="th4">Stack:</span> [<span class="th1">d</span>] &nbsp; Pop <span class="th1">d</span> → push i,h</div>
+    <div><span class="th4">Stack:</span> [i,<span class="th1">h</span>] &nbsp; Pop <span class="th1">h</span>, then pop <span class="th1">i</span></div>
+    <div><span class="th5">Pop order:</span> a, b, e, f, c, g, d, h, i</div>
+  </div>
+
+  <div class="card card-teal">
+    <div class="card-title">Exam Tip — Ordering</div>
+    BFS adjacency lists: <strong>alphabetical</strong>. DFS adjacency lists: <strong>reverse alphabetical</strong> when using an explicit stack (so the first-alphabetical neighbor is pushed last and popped first). Always read the exam instructions carefully.
+  </div>
+
+  <h3>Modified BFS — k-Friends Problem (Fa21 Q5)</h3>
+  <p>Find all nodes that are within degree ≤ k of both v1 and v2 (common "k-friends").</p>
+  <ul class="steps">
+    <li><span class="snum">1</span>Run BFS from v1; record dist1[v] = distance from v1 to every vertex v.</li>
+    <li><span class="snum">2</span>Run BFS from v2; record dist2[v] = distance from v2 to every vertex v.</li>
+    <li><span class="snum">3</span>Scan all vertices: report v if dist1[v] ≤ k <strong>and</strong> dist2[v] ≤ k.</li>
+  </ul>
+  <p><strong>Complexity:</strong> Two BFS passes = 2·O(V+E), plus O(V) scan = <span class="big-o">O(V+E)</span>.</p>
+  </section>
+
+  <!-- 5D DIJKSTRA -->
+  <section id="s5d">
+  <h3>Dijkstra's Algorithm</h3>
+  <p>Finds shortest paths from a single source in graphs with <strong>non-negative</strong> edge weights.</p>
+
+  <pre><span class="fn">Dijkstra</span>(G, src):
+  dist[src]=0;  dist[v]=∞ for all v≠src
+  pred[v]=null for all v
+  Q = min-priority queue of all vertices keyed by dist
+  <span class="kw">while</span> Q not empty:
+    u = Q.<span class="fn">extract_min</span>()
+    <span class="kw">for</span> each neighbor v of u:
+      alt = dist[u] + weight(u,v)
+      <span class="kw">if</span> alt &lt; dist[v]:
+        dist[v] = alt;  pred[v] = u
+        Q.<span class="fn">decrease_key</span>(v, alt)</pre>
+
+  <div class="interactive" id="dijkstra-trace">
+    <h4>Dijkstra's Full Trace — Fa21 Exam Graph (Source: A)</h4>
+    <p style="font-size:.84rem;color:var(--muted);margin-bottom:.8rem;">
+      Edges: A-C=4, A-H=5, A-D=8 (direct), C-B=3, B-E=1, B-L=4, E-F=1, D-G=6, F-G=2→(D-G cheaper via D=8+18=26, via F: 8+1+2=11✓), F-K=3, H-J=3. The table below shows the final shortest distances.
+    </p>
+    <table style="font-size:.83rem;">
+      <thead><tr><th>Node</th><th>Shortest Cost</th><th>Predecessor</th><th>How</th></tr></thead>
       <tbody>
-        <tr><td>Perfect binary tree</td><td>2<sup>h</sup> leaves, 2<sup>h+1</sup>−1 nodes</td><td>—</td></tr>
-        <tr><td>Master Theorem (Case II)</td><td>f(n) = Θ(n<sup>log<sub>b</sub>a</sup>) → ×log n</td><td>Θ(n<sup>log<sub>b</sub>a</sup> log n)</td></tr>
-        <tr><td>Merge Sort</td><td>T(n) = 2T(n/2) + Θ(n)</td><td class="theta">Θ(n log n)</td></tr>
-        <tr><td>QuickSort best</td><td>Always balanced partition</td><td class="theta">Θ(n log n)</td></tr>
-        <tr><td>QuickSort worst</td><td>Always unbalanced partition</td><td class="big-o">Θ(n²)</td></tr>
-        <tr><td>Comparison sort lower bound</td><td>Decision tree ≥ n! leaves</td><td class="omega">Ω(n log n)</td></tr>
-        <tr><td>LCS (no memo)</td><td>3 recursive branches</td><td class="big-o">O(3<sup>m+n</sup>)</td></tr>
-        <tr><td>LCS (memoized)</td><td>(m+1)×(n+1) table</td><td class="theta">Θ(mn)</td></tr>
-        <tr><td>BFS / DFS</td><td>Queue / Stack</td><td class="big-o">O(V + E)</td></tr>
-        <tr><td>Dijkstra's</td><td>No negative edges</td><td class="big-o">O((V+E) log V)</td></tr>
-        <tr><td>Bellman-Ford</td><td>Handles negatives, detects neg. cycles</td><td class="big-o">O(VE)</td></tr>
-        <tr><td>Kruskal's (MST)</td><td>Sort edges, union-find</td><td class="big-o">O(E log E)</td></tr>
-        <tr><td>Min-range subarray</td><td>Sort + sliding window</td><td class="big-o">O(n log n)</td></tr>
+        <tr><td>A</td><td style="color:var(--teal)">0</td><td>—</td><td>Source</td></tr>
+        <tr><td>C</td><td style="color:var(--teal)">4</td><td>A</td><td>A→C = 4</td></tr>
+        <tr><td>H</td><td style="color:var(--teal)">5</td><td>A</td><td>A→H = 5</td></tr>
+        <tr><td>B</td><td style="color:var(--teal)">7</td><td>C</td><td>A→C→B = 4+3</td></tr>
+        <tr><td>D</td><td style="color:var(--teal)">8</td><td>A</td><td>A→D = 8 (direct)</td></tr>
+        <tr><td>J</td><td style="color:var(--teal)">8</td><td>H</td><td>A→H→J = 5+3</td></tr>
+        <tr><td>E</td><td style="color:var(--teal)">8</td><td>B</td><td>A→C→B→E = 4+3+1</td></tr>
+        <tr><td>F</td><td style="color:var(--teal)">9</td><td>E</td><td>A→C→B→E→F = 4+3+1+1</td></tr>
+        <tr><td>G</td><td style="color:var(--teal)">11</td><td>F</td><td>…→F→G = 9+2</td></tr>
+        <tr><td>L</td><td style="color:var(--teal)">11</td><td>B</td><td>A→C→B→L = 4+3+4</td></tr>
+        <tr><td>K</td><td style="color:var(--teal)">12</td><td>F</td><td>…→F→K = 9+3</td></tr>
       </tbody>
     </table>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem;">Extraction order: A → C → H → B → D → J → E → F → G → L → K</p>
+  </div>
 
-    <div class="card card-amber" style="margin-top:1.5rem;">
-      <div class="card-title">Useful Summations (from exam reference sheet)</div>
-      <ul style="font-family:var(--font-mono); font-size:0.83rem;">
-        <li>Gauss Sum: Σ k = n(n+1)/2</li>
-        <li>Geometric: Σ rᵏ = 1/(1−r) &nbsp;(|r| &lt; 1)</li>
-        <li>Finite Geometric: Σ rᵏ (k=0 to N) = (r^(N+1) − 1)/(r − 1)</li>
-        <li>Stirling's: n! ≈ √(2πn)(n/e)ⁿ</li>
-      </ul>
-    </div>
+  <div class="card card-amber">
+    <div class="card-title">Why Dijkstra Fails on Negative Edges</div>
+    Once a node u is extracted from the min-heap, Dijkstra declares dist[u] final. But a negative edge encountered later could give a shorter path to u through some not-yet-extracted node v. The greedy "finalize on extraction" assumption breaks down — negative edges allow "going backward" to improve already-finalized distances.
+  </div>
   </section>
 
-  <p style="text-align:center; color:var(--muted); font-family:var(--font-mono); font-size:0.75rem; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
-    CMSC 441 · Based on Spring 2025 &amp; Fall 2021 exams · Good luck! 🎯
-  </p>
+  <!-- 5E BELLMAN-FORD -->
+  <section id="s5e">
+  <h3>Bellman-Ford Algorithm</h3>
+  <p>Relaxes <em>all</em> edges |V|−1 times. Handles negative-weight edges. Detects negative-weight cycles.</p>
 
+  <pre><span class="fn">BellmanFord</span>(G, src):
+  dist[src]=0;  dist[v]=∞ for all v≠src
+  <span class="kw">for</span> iter = 1 to |V|−1:
+    <span class="kw">for</span> each edge (u,v,w) in G.edges:
+      <span class="kw">if</span> dist[u]+w &lt; dist[v]:
+        dist[v] = dist[u]+w;  pred[v] = u
+  <span class="cm">// Negative cycle detection</span>
+  <span class="kw">for</span> each edge (u,v,w):
+    <span class="kw">if</span> dist[u]+w &lt; dist[v]: <span class="kw">report</span> negative cycle</pre>
+
+  <div class="card card-red">
+    <div class="card-title">Negative Cycle Problem (Sp25 Q10)</div>
+    Graph: a→b (5), b→c (−20), c→d (8), d→c (−4→ wait: exam has c→a=5, d→c=−4), c→a (5). Edge sequence given: a→b, c→d, c→a, d→c, b→c.<br><br>
+    The cycle b→c→a→b has total weight −20+5+5 = −10. Each time around the cycle, all reachable distances <em>decrease</em>. Bellman-Ford keeps relaxing indefinitely, producing −∞ values. Detection: if any edge still relaxes after |V|−1 = 4 iterations, a negative cycle exists.
+  </div>
+
+  <div class="trace">
+    <div>Init: dist = {a:0, b:∞, c:∞, d:∞}</div>
+    <div>Iter 1: a→b → dist[b]=<span class="th1">5</span>; b→c → dist[c]=<span class="th1">−15</span>; c→a → dist[a]=<span class="th1">−10</span>; d→c: no update; c→d → dist[d]=<span class="th1">−7</span></div>
+    <div>Iter 2: a→b → dist[b]=<span class="th2">−5</span>; b→c → dist[c]=<span class="th2">−25</span>; c→a → dist[a]=<span class="th2">−20</span> … <span class="th4">values keep shrinking</span></div>
+    <div>After |V|−1 iters: still relaxable → <span class="th4">NEGATIVE CYCLE DETECTED</span></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card card-teal">
+      <div class="card-title">Bellman-Ford: O(VE)</div>
+      |V|−1 iterations × |E| edges per iteration. Slower than Dijkstra but handles negative edges.
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">Dijkstra: O((V+E) log V)</div>
+      With binary heap. Only valid for non-negative weights. Much faster in practice.
+    </div>
+  </div>
+  </section>
+
+  <!-- 5F KRUSKAL -->
+  <section id="s5f">
+  <h3>Kruskal's Algorithm — Minimum Spanning Tree</h3>
+  <p>Greedily adds the cheapest edge that doesn't create a cycle, until |V|−1 edges are selected.</p>
+
+  <pre><span class="fn">Kruskal</span>(G):
+  sort edges by weight (ascending)
+  forest = <span class="fn">UnionFind</span>(V)    <span class="cm">// each vertex in its own set</span>
+  MST = []
+  <span class="kw">for</span> each edge (u,v,w) in sorted order:
+    <span class="kw">if</span> forest.<span class="fn">find</span>(u) != forest.<span class="fn">find</span>(v):  <span class="cm">// different components</span>
+      MST.<span class="fn">append</span>((u,v,w))
+      forest.<span class="fn">union</span>(u, v)
+      <span class="kw">if</span> MST.size == |V|−1: <span class="kw">break</span>
+  <span class="kw">return</span> MST</pre>
+
+  <h4>Worked Example — Fa21 Exam Graph</h4>
+  <p>Edges sorted by weight. Vertices A–L, J. We add each edge if it connects two different components.</p>
+  <div class="trace">
+    <div>Sorted edges (sample): B–E=1, C–B=3, H–J=3, A–C=4, B–L=4, A–H=5, D–G=6, C–A=4, E–F=1…</div>
+    <div>Add <span class="th1">B–E (w=1)</span>: B and E in separate sets → <span class="th5">Add</span>. MST={B-E}</div>
+    <div>Add <span class="th1">E–F (w=1)</span>: E and F in separate sets → <span class="th5">Add</span>. MST={B-E, E-F}</div>
+    <div>Add <span class="th1">C–B (w=3)</span>: C and B separate → <span class="th5">Add</span>. MST={B-E, E-F, C-B}</div>
+    <div>Add <span class="th1">H–J (w=3)</span>: H and J separate → <span class="th5">Add</span>. MST={…, H-J}</div>
+    <div>Add <span class="th1">A–C (w=4)</span>: A and C separate → <span class="th5">Add</span></div>
+    <div>Add <span class="th1">B–L (w=4)</span>: B and L separate → <span class="th5">Add</span></div>
+    <div>Add <span class="th1">A–H (w=5)</span>: A and H separate → <span class="th5">Add</span></div>
+    <div>Continue until |V|−1 = 10 edges selected → <span class="th5">MST complete</span></div>
+  </div>
+
+  <div class="card card-teal">
+    <div class="card-title">Complexity: O(E log E)</div>
+    Sorting edges: O(E log E). Union-Find operations: O(E α(V)) ≈ O(E). Total: <span class="big-o">O(E log E)</span>.
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: Why does Kruskal's produce a minimum spanning tree (not just a spanning tree)?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      By the "cut property": for any cut of the graph (partition of vertices into two sets), the minimum-weight edge crossing the cut is always in some MST. Kruskal's greedily picks the global minimum available edge that doesn't create a cycle. At each step, this edge is the minimum crossing some cut of the current forest — so by the cut property, it belongs in the MST. Proof by induction shows the greedy choice is always safe.
+    </div>
+  </div>
+  </section>
+</section>
+<hr class="divider">
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — NP-COMPLETENESS                         -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-head"><span class="section-num">06</span><h2>NP-Completeness &amp; Problem Complexity</h2></div>
+
+  <div class="grid-3">
+    <div class="card card-green">
+      <div class="card-title">P</div>
+      Problems <strong>solvable</strong> in polynomial time. Examples: sorting, Dijkstra's, MST, LCS.
+    </div>
+    <div class="card card-amber">
+      <div class="card-title">NP</div>
+      Problems whose <strong>proposed solutions can be verified</strong> in polynomial time. P ⊆ NP. Unknown if P = NP.
+    </div>
+    <div class="card card-red">
+      <div class="card-title">NP-Complete</div>
+      In NP AND every NP problem reduces to it in poly-time. "Hardest" problems in NP. SAT is the canonical example.
+    </div>
+  </div>
+
+  <h3>SAT (Satisfiability)</h3>
+  <p>Given φ(x₁,…,xₙ) — a boolean formula using ∧, ∨, ¬ — does there exist a truth assignment making φ = True?</p>
+  <p><strong>Example:</strong> φ = ¬x₁ ∧ (x₂ ∨ x₃). Assignment (False, True, False) makes φ = True.</p>
+
+  <div class="card card-teal">
+    <div class="card-title">SAT ∈ NP — Verification Algorithm</div>
+    <strong>Certificate:</strong> A boolean assignment (T/F for each of the n variables).<br>
+    <strong>Verifier:</strong> Substitute all variable values into φ. Evaluate using the formula's structure — in the worst case (deeply nested formula) this takes O(n²). Since O(n²) is polynomial, the verifier runs in polynomial time → <strong>SAT ∈ NP</strong>. □
+  </div>
+
+  <div class="card card-amber">
+    <div class="card-title">Why NP-Complete ≠ Not in P</div>
+    SAT is NP-Complete means: (1) SAT ∈ NP and (2) every NP problem reduces to SAT in poly-time. This does NOT prove SAT ∉ P. If someone found a poly-time algorithm for SAT, it would prove P = NP (and solve all NP problems). We simply don't know yet whether such an algorithm exists. The open question P vs. NP remains the most famous unsolved problem in computer science.
+  </div>
+
+  <h3>TSP(k) — Traveling Salesman Restriction</h3>
+  <p>TSP asks for the minimum-cost Hamiltonian cycle (visits every <strong>vertex</strong> exactly once and returns). TSP(k): does a Hamiltonian cycle of cost <em>exactly k</em> exist?</p>
+
+  <div class="card card-teal">
+    <div class="card-title">TSP(k) ∈ NP — Verification Algorithm</div>
+    <strong>What a solution looks like:</strong> An ordered permutation of all |V| vertices — a proposed Hamiltonian cycle.<br>
+    <pre style="margin:.7rem 0 0;"><span class="fn">verify_TSP_k</span>(G=(V,E,w), path, k):
+  <span class="kw">if</span> |path| != |V|: <span class="kw">return</span> False           <span class="cm">// wrong length</span>
+  <span class="kw">if</span> path has any repeated vertex: <span class="kw">return</span> False
+  total = <span class="num">0</span>
+  <span class="kw">for</span> i = 0 to |V|−1:
+    u = path[i];  v = path[(i+<span class="num">1</span>) % |V|]    <span class="cm">// wrap-around last edge</span>
+    <span class="kw">if</span> (u,v) ∉ E: <span class="kw">return</span> False
+    total += w(u, v)
+  <span class="kw">return</span> total == k                         <span class="cm">// cost exactly k?</span></pre>
+    This runs in O(|V|) — polynomial. Therefore TSP(k) ∈ NP. □
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: What distinguishes NP-Complete from NP-Hard?</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      <strong>NP-Complete</strong> = in NP AND NP-Hard. <strong>NP-Hard</strong> = every NP problem reduces to it in poly-time, but it may NOT itself be in NP (i.e., solutions may not be verifiable in poly-time). Example: the Halting Problem is NP-Hard but not in NP (and not NP-Complete) since we can't even verify "this program halts" in polynomial time.
+    </div>
+  </div>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice (Fa21 Q10): Show that SAT ∈ NP by describing the certificate and verifier.</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      <strong>Certificate:</strong> a truth assignment — a list of n Boolean values, one per variable.<br>
+      <strong>Verifier:</strong> Substitute the assignment into φ. Traverse the formula tree: evaluate each atomic clause (e.g., ¬x₁ = not False = True), then combine using ∧ and ∨ operators bottom-up. The formula has at most O(n) operators and O(n) clauses, so evaluation takes O(n²) at worst (each operator may trigger a sub-traversal). O(n²) is polynomial → SAT ∈ NP. □
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SECTION 7 — ALGORITHM DESIGN                        -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-head"><span class="section-num">07</span><h2>Algorithm Design — Min-Range Subarray</h2></div>
+
+  <p><strong>Problem (Sp25 Q6):</strong> Given array A = [a₁,…,aₙ], create array B of exactly k elements from A such that max(B)−min(B) is minimized.</p>
+
+  <h4>Key Insight</h4>
+  <div class="card card-blue">
+    <div class="card-title">Why Consecutive Elements in Sorted Order Are Optimal</div>
+    If B contains any two elements that are not adjacent in sorted A, we can always reduce max(B)−min(B) by replacing the outlier with the element adjacent to the closest remaining element. Therefore the optimal B is always a <strong>window of k consecutive elements in the sorted array</strong>.
+  </div>
+
+  <h4>Example Trace — A = [1, 2, 7, 12, 15, 16], k = 3</h4>
+  <div class="trace">
+    <div>Sorted A: [1, 2, 7, 12, 15, 16]</div>
+    <div>Window [1,2,7]: max−min = <span class="th1">7−1 = 6</span></div>
+    <div>Window [2,7,12]: max−min = <span class="th1">12−2 = 10</span></div>
+    <div>Window [7,12,15]: max−min = <span class="th1">15−7 = 8</span></div>
+    <div>Window [12,15,16]: max−min = <span class="th2">16−12 = 4</span> ← minimum</div>
+    <div>→ <span class="th5">B = [12, 15, 16]</span>, range = 4</div>
+  </div>
+
+  <h4>Pseudocode</h4>
+  <pre><span class="fn">min_range_subarray</span>(A, k):
+  sorted_A = <span class="fn">sort</span>(A)                  <span class="cm">// O(n log n)</span>
+  best_range = ∞
+  best_start = 0
+  <span class="kw">for</span> i = 0 to n−k:                   <span class="cm">// O(n) sliding window</span>
+    range = sorted_A[i+k−1] − sorted_A[i]
+    <span class="kw">if</span> range &lt; best_range:
+      best_range = range
+      best_start = i
+  <span class="kw">return</span> sorted_A[best_start .. best_start+k−1]</pre>
+
+  <div class="grid-2">
+    <div class="card card-green">
+      <div class="card-title">Time Complexity — O(n log n)</div>
+      Sort: O(n log n). Sliding window: O(n−k+1) = O(n). Total dominated by sort: <span class="big-o">O(n log n)</span>.
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">Space Complexity — O(n)</div>
+      O(n) for sorted copy. O(1) extra for the window scan. Sorting stack: O(log n).
+    </div>
+  </div>
+
+  <h4>Edge Cases to Consider</h4>
+  <ul>
+    <li><strong>k = 1:</strong> Any single element. Range = 0. Return any element.</li>
+    <li><strong>k = n:</strong> Must take all elements. Return entire sorted array.</li>
+    <li><strong>Ties:</strong> Multiple windows may achieve the same minimum range; return any.</li>
+    <li><strong>Unsorted input:</strong> Algorithm handles this — sorting is the first step.</li>
+  </ul>
+
+  <div class="pblock">
+    <div class="pq"><span>Practice: Trace the algorithm on A = [9, 1, 6, 3, 8, 2] with k = 3.</span><button class="tbtn" onclick="tog(this)">Show Answer</button></div>
+    <div class="pa"><div class="pa-label">Solution</div>
+      Sorted: [1, 2, 3, 6, 8, 9]<br>
+      Windows: [1,2,3]→2, [2,3,6]→4, [3,6,8]→5, [6,8,9]→3<br>
+      Minimum range = 2, achieved by <strong>B = [1, 2, 3]</strong>.
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- QUICK REFERENCE                                      -->
+<!-- ════════════════════════════════════════════════════ -->
+<section class="section" id="sref">
+  <div class="section-head"><span class="section-num">∑</span><h2>Quick Reference</h2></div>
+
+  <table class="algo-compare">
+    <thead><tr><th>Algorithm / Concept</th><th>Key Formula / Rule</th><th>Complexity</th></tr></thead>
+    <tbody>
+      <tr><td>Perfect binary tree</td><td>2<sup>h</sup> leaves, 2<sup>h+1</sup>−1 nodes</td><td>—</td></tr>
+      <tr><td>Master Theorem Case I</td><td>f(n) ∈ O(n<sup>crit−ε</sup>) → recursion wins</td><td class="theta">Θ(n<sup>log<sub>b</sub>a</sup>)</td></tr>
+      <tr><td>Master Theorem Case II</td><td>f(n) = Θ(n<sup>crit</sup>) → tie, ×log n</td><td class="theta">Θ(n<sup>crit</sup> log n)</td></tr>
+      <tr><td>Master Theorem Case III</td><td>f(n) ∈ Ω(n<sup>crit+ε</sup>) → f(n) wins</td><td class="theta">Θ(f(n))</td></tr>
+      <tr><td>Insertion Sort best</td><td>Already sorted, no swaps needed</td><td class="theta">Θ(n)</td></tr>
+      <tr><td>Insertion Sort worst</td><td>Reverse sorted: n(n−1)/2 swaps</td><td class="big-o">Θ(n²)</td></tr>
+      <tr><td>Merge Sort (all cases)</td><td>T(n) = 2T(n/2)+Θ(n), always</td><td class="theta">Θ(n log n)</td></tr>
+      <tr><td>QuickSort best</td><td>Balanced partitions every time</td><td class="theta">Θ(n log n)</td></tr>
+      <tr><td>QuickSort worst</td><td>T(n)=T(n−1)+Θ(n), unbalanced</td><td class="big-o">Θ(n²)</td></tr>
+      <tr><td>Comparison sort lower bound</td><td>Decision tree needs ≥ n! leaves</td><td class="omega">Ω(n log n)</td></tr>
+      <tr><td>Radix Sort</td><td>d passes × counting sort; non-comparison</td><td class="theta">Θ(dn) ≈ Θ(n)</td></tr>
+      <tr><td>LCS (no memo)</td><td>3 branches per call, depth m+n</td><td class="big-o">O(3<sup>m+n</sup>)</td></tr>
+      <tr><td>LCS (memoized)</td><td>(m+1)×(n+1) table, O(1) per cell</td><td class="theta">Θ(mn)</td></tr>
+      <tr><td>BFS / DFS</td><td>Queue (FIFO) / Stack (LIFO)</td><td class="big-o">O(V+E)</td></tr>
+      <tr><td>Dijkstra's</td><td>Non-negative weights only, greedy</td><td class="big-o">O((V+E) log V)</td></tr>
+      <tr><td>Bellman-Ford</td><td>|V|−1 relaxation passes</td><td class="big-o">O(VE)</td></tr>
+      <tr><td>Kruskal's MST</td><td>Sort edges, union-find</td><td class="big-o">O(E log E)</td></tr>
+      <tr><td>Min-range subarray</td><td>Sort + sliding window of size k</td><td class="big-o">O(n log n)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card card-amber" style="margin-top:1.5rem;">
+    <div class="card-title">Reference Sheet Summations</div>
+    <ul style="font-family:var(--font-mono);font-size:.83rem;">
+      <li>Gauss Sum: &nbsp;&Sigma; k (k=1..n) = n(n+1)/2</li>
+      <li>Infinite Geometric: &nbsp;&Sigma; rᵏ = 1/(1−r) &nbsp; for |r|&lt;1</li>
+      <li>Finite Geometric: &nbsp;&Sigma; rᵏ (k=0..N) = (r^(N+1)−1)/(r−1)</li>
+      <li>Weighted Geometric: &nbsp;&Sigma; k·rᵏ = r/(1−r)²</li>
+      <li>Stirling's Approx: &nbsp;n! ≈ √(2πn)·(n/e)ⁿ</li>
+    </ul>
+  </div>
+</section>
+
+<p style="text-align:center;color:var(--muted);font-family:var(--font-mono);font-size:.72rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+  CMSC 441 · Spring 2025 &amp; Fall 2021 exam material · Good luck on the final
+</p>
 </main>
 
 <script>
-function toggle(btn) {
-  const block = btn.closest('.practice-block');
-  const ans = block.querySelector('.practice-a');
-  const isOpen = ans.classList.toggle('open');
-  btn.textContent = isOpen ? 'Hide Answer' : 'Show Answer';
+// ─── TOGGLE PRACTICE ANSWERS ───
+function tog(btn) {
+  const pa = btn.closest('.pblock').querySelector('.pa');
+  const open = pa.classList.toggle('open');
+  btn.textContent = open ? 'Hide Answer' : 'Show Answer';
 }
 
+// ─── MASTER THEOREM CALCULATOR ───
 function calcMaster() {
   const a = parseFloat(document.getElementById('mt-a').value);
   const b = parseFloat(document.getElementById('mt-b').value);
   const p = parseFloat(document.getElementById('mt-p').value);
   const box = document.getElementById('mt-result');
-
-  if (isNaN(a) || isNaN(b) || isNaN(p) || a < 1 || b < 2) {
-    box.innerHTML = '<div class="res-answer" style="color:var(--red)">Invalid input. Need a ≥ 1 and b ≥ 2.</div>';
-    return;
+  if (isNaN(a)||isNaN(b)||isNaN(p)||a<1||b<2) {
+    box.innerHTML='<div class="ra" style="color:var(--red)">Invalid: need a≥1, b≥2.</div>'; return;
   }
-
-  const crit = Math.log(a) / Math.log(b);
-  const critRounded = Math.round(crit * 1000) / 1000;
-  const pRounded = Math.round(p * 1000) / 1000;
-  const eps = 0.001;
-
-  let caseNum, result, explain;
-
-  if (p < crit - eps) {
-    caseNum = 'I';
-    result = `Θ(n^${critRounded})`;
-    explain = `f(n) = n^${pRounded} ∈ O(n^${critRounded}−ε) — recursion dominates.`;
-  } else if (Math.abs(p - crit) <= eps) {
-    caseNum = 'II';
-    result = `Θ(n^${critRounded} · log n)`;
-    explain = `f(n) = n^${pRounded} = Θ(n^${critRounded}) — tie, multiply by log n.`;
+  const crit = Math.log(a)/Math.log(b);
+  const cr = Math.round(crit*1000)/1000;
+  const pr = Math.round(p*1000)/1000;
+  const eps = 0.002;
+  let cas, res, exp;
+  if (p < crit-eps) {
+    cas='I'; res=`Θ(n^${cr})`; exp=`f(n)=n^${pr} ∈ O(n^${cr}−ε) → recursion dominates.`;
+  } else if (Math.abs(p-crit)<=eps) {
+    cas='II'; res=`Θ(n^${cr} · log n)`; exp=`f(n)=n^${pr} = Θ(n^${cr}) → tie, multiply by log n.`;
   } else {
-    caseNum = 'III';
-    result = `Θ(n^${pRounded})`;
-    explain = `f(n) = n^${pRounded} ∈ Ω(n^${critRounded}+ε) — f(n) dominates.`;
+    cas='III'; res=`Θ(n^${pr})`; exp=`f(n)=n^${pr} ∈ Ω(n^${cr}+ε) → f(n) dominates.`;
   }
-
-  box.innerHTML = `
-    <div class="res-answer">T(n) = ${result} &nbsp;(Case ${caseNum})</div>
-    <div class="res-explain">T(n) = ${a}T(n/${b}) + Θ(n^${pRounded}) &nbsp;|&nbsp; crit = n^log_${b}(${a}) = n^${critRounded}<br>${explain}</div>
-  `;
+  box.innerHTML=`<div class="ra">T(n) = ${res} &nbsp;[Case ${cas}]</div><div class="re">T(n)=${a}T(n/${b})+Θ(n^${pr}) | crit = n^log_${b}(${a}) = n^${cr}<br>${exp}</div>`;
 }
 
-// Active nav highlighting
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-const observer = new IntersectionObserver((entries) => {
+// ─── SORTING VISUALIZER ───
+const VALUES = [64,34,25,12,22,11,90,45,17,53];
+let bars = [...VALUES];
+let animating = false;
+
+function initBars(arr) {
+  bars = [...arr];
+  const c = document.getElementById('bars-container');
+  if (!c) return;
+  c.innerHTML = '';
+  const maxV = Math.max(...arr);
+  arr.forEach((v,i) => {
+    const b = document.createElement('div');
+    b.className = 'bar';
+    b.id = 'bar-'+i;
+    b.style.height = (v/maxV*100)+'%';
+    const s = document.createElement('span');
+    s.textContent = v;
+    b.appendChild(s);
+    c.appendChild(b);
+  });
+}
+
+function resetBars() {
+  animating = false;
+  const shuffled = [...VALUES].sort(()=>Math.random()-0.5);
+  initBars(shuffled);
+  document.getElementById('sort-status').textContent = 'Press ▶ Sort to begin.';
+  document.querySelectorAll('#bars-container .bar').forEach(b=>{b.className='bar';});
+}
+
+function getDelay() { return parseInt(document.getElementById('speed-select').value||150); }
+
+function sleep(ms) { return new Promise(r=>setTimeout(r,ms)); }
+
+async function animSwap(i,j,arr) {
+  const delay = getDelay();
+  const bi = document.getElementById('bar-'+i);
+  const bj = document.getElementById('bar-'+j);
+  if (!bi||!bj) return;
+  bi.classList.add('active'); bj.classList.add('comparing');
+  await sleep(delay);
+  [arr[i],arr[j]]=[arr[j],arr[i]];
+  const maxV = Math.max(...arr);
+  bi.style.height = (arr[i]/maxV*100)+'%'; bi.querySelector('span').textContent=arr[i];
+  bj.style.height = (arr[j]/maxV*100)+'%'; bj.querySelector('span').textContent=arr[j];
+  await sleep(delay);
+  bi.classList.remove('active','comparing'); bj.classList.remove('active','comparing','sorted');
+}
+
+async function markSorted(i) {
+  const b = document.getElementById('bar-'+i);
+  if (b) b.classList.add('sorted');
+}
+
+async function runInsertion(arr) {
+  const n = arr.length;
+  const delay = getDelay();
+  for (let i=1;i<n;i++) {
+    if(!animating) return;
+    document.getElementById('sort-status').textContent = `Insertion Sort: placing element at index ${i} (value ${arr[i]})`;
+    let j=i;
+    document.getElementById('bar-'+j)?.classList.add('active');
+    while (j>0 && arr[j]<arr[j-1]) {
+      if(!animating) return;
+      await animSwap(j,j-1,arr);
+      j--;
+    }
+    document.getElementById('bar-'+j)?.classList.remove('active');
+    markSorted(j);
+    await sleep(delay);
+  }
+  for(let k=0;k<n;k++) markSorted(k);
+  document.getElementById('sort-status').textContent = 'Insertion Sort complete! ✓';
+}
+
+async function runMerge(arr) {
+  const delay = getDelay();
+  async function merge(a, lo, mid, hi) {
+    const L=a.slice(lo,mid+1), R=a.slice(mid+1,hi+1);
+    let i=0,j=0,k=lo;
+    while(i<L.length&&j<R.length) {
+      if(!animating) return;
+      document.getElementById('sort-status').textContent=`Merge Sort: merging [${lo}..${mid}] and [${mid+1}..${hi}]`;
+      const bk=document.getElementById('bar-'+k);
+      if(bk) bk.classList.add('active');
+      await sleep(delay);
+      if(L[i]<=R[j]) { a[k]=L[i++]; } else { a[k]=R[j++]; }
+      const maxV=Math.max(...a);
+      if(bk){ bk.style.height=(a[k]/maxV*100)+'%'; bk.querySelector('span').textContent=a[k]; bk.classList.remove('active'); }
+      k++;
+    }
+    while(i<L.length){ if(!animating)return; a[k]=L[i++]; const bk=document.getElementById('bar-'+(k)); const maxV=Math.max(...a); if(bk){bk.style.height=(a[k]/maxV*100)+'%';bk.querySelector('span').textContent=a[k];} k++; }
+    while(j<R.length){ if(!animating)return; a[k]=R[j++]; const bk=document.getElementById('bar-'+(k)); const maxV=Math.max(...a); if(bk){bk.style.height=(a[k]/maxV*100)+'%';bk.querySelector('span').textContent=a[k];} k++; }
+    for(let x=lo;x<=hi;x++) markSorted(x);
+    await sleep(delay/2);
+  }
+  async function ms(a,lo,hi) {
+    if(!animating||lo>=hi) return;
+    const mid=Math.floor((lo+hi)/2);
+    await ms(a,lo,mid); await ms(a,mid+1,hi); await merge(a,lo,mid,hi);
+  }
+  await ms(arr,0,arr.length-1);
+  for(let k=0;k<arr.length;k++) markSorted(k);
+  document.getElementById('sort-status').textContent='Merge Sort complete! ✓';
+}
+
+async function runQuick(arr) {
+  const delay = getDelay();
+  async function partition(a,lo,hi) {
+    const mid=Math.floor((lo+hi)/2);
+    const bm=document.getElementById('bar-'+mid);
+    if(bm) bm.classList.add('active');
+    const pivot=a[mid];
+    await animSwap(mid,hi,a);
+    let i=lo-1;
+    for(let j=lo;j<hi;j++){
+      if(!animating) return lo;
+      const bj=document.getElementById('bar-'+j);
+      if(bj) bj.classList.add('comparing');
+      await sleep(delay);
+      if(a[j]<=pivot){ i++; await animSwap(i,j,a); }
+      if(bj) bj.classList.remove('comparing');
+    }
+    await animSwap(i+1,hi,a);
+    markSorted(i+1);
+    return i+1;
+  }
+  async function qs(a,lo,hi) {
+    if(!animating||lo>=hi) return;
+    document.getElementById('sort-status').textContent=`QuickSort: partitioning [${lo}..${hi}]`;
+    const pi=await partition(a,lo,hi);
+    await qs(a,lo,pi-1); await qs(a,pi+1,hi);
+  }
+  await qs(arr,0,arr.length-1);
+  for(let k=0;k<arr.length;k++) markSorted(k);
+  document.getElementById('sort-status').textContent='QuickSort complete! ✓';
+}
+
+async function startSort() {
+  if(animating) return;
+  animating=true;
+  const algo=document.getElementById('sort-algo-select').value;
+  const arr=[...bars];
+  document.querySelectorAll('#bars-container .bar').forEach(b=>b.classList.remove('sorted','active','comparing'));
+  if(algo==='insertion') await runInsertion(arr);
+  else if(algo==='merge') await runMerge(arr);
+  else await runQuick(arr);
+  animating=false;
+}
+
+// ─── ACTIVE NAV ───
+const allSections = document.querySelectorAll('section[id]');
+const allLinks = document.querySelectorAll('.nav-link[href^="#"]');
+const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
-      if (active) active.classList.add('active');
+    if(e.isIntersecting) {
+      allLinks.forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if(a) a.classList.add('active');
     }
   });
-}, { rootMargin: '-20% 0px -70% 0px' });
-sections.forEach(s => observer.observe(s));
+}, {rootMargin:'-15% 0px -70% 0px'});
+allSections.forEach(s=>io.observe(s));
+
+// Init bars on load
+window.addEventListener('load', () => initBars([...VALUES].sort(()=>Math.random()-0.5)));
 </script>
 </body>
 </html>
